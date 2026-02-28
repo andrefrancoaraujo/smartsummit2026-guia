@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Summit 2026 — Guia de Conteúdo</title>
+  <style>
+    :root {
+      --bg: #0d0f14;
+      --bg2: #13161e;
+      --bg3: #1a1e29;
+      --border: #252a38;
+      --accent: #f7c948;
+      --accent2: #e8a020;
+      --text: #e8eaf0;
+      --muted: #8892a4;
+      --link: #60a5fa;
+      --green: #34d399;
+      --red: #f87171;
+      --sidebar-w: 260px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      width: var(--sidebar-w);
+      min-height: 100vh;
+      background: var(--bg2);
+      border-right: 1px solid var(--border);
+      position: fixed;
+      top: 0; left: 0;
+      overflow-y: auto;
+      z-index: 100;
+    }
+    .sidebar-logo {
+      padding: 24px 20px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .sidebar-logo .event-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #000;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+    .sidebar-logo h2 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+    }
+    .sidebar-logo p {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    .sidebar-nav {
+      padding: 12px 0;
+    }
+    .nav-section {
+      padding: 6px 20px 4px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 20px;
+      font-size: 13px;
+      color: var(--muted);
+      cursor: pointer;
+      border-left: 3px solid transparent;
+      transition: all 0.15s;
+      text-decoration: none;
+    }
+    .nav-item:hover {
+      background: var(--bg3);
+      color: var(--text);
+    }
+    .nav-item.active {
+      background: var(--bg3);
+      color: var(--accent);
+      border-left-color: var(--accent);
+    }
+    .nav-item .icon {
+      font-size: 16px;
+      width: 20px;
+      text-align: center;
+    }
+    .nav-item .num {
+      font-size: 11px;
+      background: var(--bg3);
+      color: var(--muted);
+      padding: 1px 6px;
+      border-radius: 10px;
+      margin-left: auto;
+    }
+    .nav-item.active .num {
+      background: var(--accent);
+      color: #000;
+    }
+
+    /* MAIN CONTENT */
+    .main {
+      margin-left: var(--sidebar-w);
+      flex: 1;
+      min-height: 100vh;
+    }
+
+    /* PAGE (each section) */
+    .page {
+      display: none;
+      padding: 48px 56px;
+      max-width: 860px;
+    }
+    .page.active { display: block; }
+
+    /* PAGE HEADER */
+    .page-header {
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .page-tag::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--accent);
+    }
+    .page h1 {
+      font-size: 32px;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .page-subtitle {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* TYPOGRAPHY */
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      margin: 32px 0 12px;
+    }
+    h2:first-of-type { margin-top: 0; }
+    h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 20px 0 8px;
+    }
+    p {
+      font-size: 14px;
+      color: #c0c8d8;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+
+    /* CARDS / BOXES */
+    .card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+    }
+    .card-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .card-sub {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+    .card p { font-size: 13px; margin-bottom: 6px; }
+
+    /* TAGS */
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-right: 6px;
+      margin-bottom: 4px;
+    }
+    .tag-orange { background: rgba(247,201,72,0.15); color: var(--accent); }
+    .tag-blue { background: rgba(96,165,250,0.15); color: var(--link); }
+    .tag-green { background: rgba(52,211,153,0.15); color: var(--green); }
+    .tag-red { background: rgba(248,113,113,0.15); color: var(--red); }
+
+    /* PRIORITY BADGE */
+    .priority {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
+    .priority-1 { background: rgba(247,201,72,0.2); color: var(--accent); border: 1px solid rgba(247,201,72,0.3); }
+    .priority-2 { background: rgba(96,165,250,0.2); color: var(--link); border: 1px solid rgba(96,165,250,0.3); }
+    .priority-3 { background: rgba(148,163,184,0.15); color: var(--muted); border: 1px solid rgba(148,163,184,0.2); }
+
+    /* QUESTION CARD */
+    .q-card {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 10px;
+      transition: border-color 0.2s;
+    }
+    .q-card:hover { border-color: var(--accent); }
+    .q-num {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--accent);
+      opacity: 0.4;
+      min-width: 32px;
+      line-height: 1;
+    }
+    .q-content {}
+    .q-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .q-sub {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .q-vs {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+      align-items: center;
+    }
+    .q-option {
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .q-option:first-child { background: rgba(247,201,72,0.1); border-color: rgba(247,201,72,0.3); }
+    .q-option:last-child { background: rgba(96,165,250,0.1); border-color: rgba(96,165,250,0.3); }
+    .q-vs-sep { color: var(--muted); font-size: 11px; font-weight: 700; }
+
+    /* CHECKLIST */
+    .checklist {
+      list-style: none;
+      margin: 8px 0 16px;
+    }
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: #c0c8d8;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.5;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .checklist li::before {
+      content: '✓';
+      color: var(--green);
+      font-weight: 700;
+      font-size: 12px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    /* TIMELINE */
+    .timeline {
+      margin: 16px 0;
+    }
+    .timeline-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .timeline-dot {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+    .timeline-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+      color: #000;
+      flex-shrink: 0;
+    }
+    .timeline-line {
+      width: 2px;
+      flex: 1;
+      background: var(--border);
+      margin: 4px auto 0;
+    }
+    .timeline-body {
+      flex: 1;
+      padding-bottom: 8px;
+    }
+    .timeline-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+      margin-top: 4px;
+    }
+    .timeline-body p { font-size: 13px; margin-bottom: 4px; }
+
+    /* CALLOUT */
+    .callout {
+      display: flex;
+      gap: 14px;
+      background: rgba(247,201,72,0.07);
+      border: 1px solid rgba(247,201,72,0.25);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 20px 0;
+    }
+    .callout-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+    .callout-body { font-size: 13px; color: #c0c8d8; line-height: 1.6; }
+    .callout-body strong { color: var(--accent); }
+
+    /* GRID */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 12px 0 20px;
+    }
+
+    /* STEP BOXES */
+    .step-box {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      position: relative;
+    }
+    .step-box .step-num {
+      position: absolute;
+      top: -10px;
+      left: 16px;
+      background: var(--accent);
+      color: #000;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+    .step-box .step-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .step-box p { font-size: 12px; margin-bottom: 4px; }
+
+    /* INDEX CARDS */
+    .index-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .index-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .index-card:hover {
+      border-color: var(--accent);
+      background: var(--bg3);
+      transform: translateY(-2px);
+    }
+    .index-card .ic-icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .index-card .ic-num {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .index-card .ic-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 6px;
+    }
+    .index-card .ic-desc {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* INFO BAR */
+    .info-bar {
+      display: flex;
+      gap: 24px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 24px;
+      margin-bottom: 32px;
+    }
+    .info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .info-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .info-value {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    /* PIPELINE */
+    .pipeline {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      overflow-x: auto;
+      margin: 16px 0 24px;
+    }
+    .pipe-step {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      min-width: 120px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .pipe-step .ps-icon { font-size: 20px; margin-bottom: 4px; }
+    .pipe-step .ps-label { font-size: 11px; font-weight: 700; color: var(--text); }
+    .pipe-step .ps-agent { font-size: 10px; color: var(--accent); margin-top: 2px; }
+    .pipe-arrow {
+      color: var(--muted);
+      font-size: 18px;
+      padding: 0 8px;
+      flex-shrink: 0;
+    }
+
+    /* MOBILE */
+    .hamburger {
+      display: none;
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      z-index: 200;
+      background: var(--accent);
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      .hamburger { display: flex; align-items: center; justify-content: center; }
+      .sidebar { transform: translateX(-100%); transition: transform 0.25s; }
+      .sidebar.open { transform: translateX(0); }
+      .main { margin-left: 0; }
+      .page { padding: 24px 20px; }
+      .index-grid { grid-template-columns: 1fr; }
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<button class="hamburger" onclick="toggleSidebar()">☰</button>
+
+<!-- SIDEBAR -->
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <span class="event-badge">SMART SUMMIT 2026</span>
+    <h2>Guia de Produção de Conteúdo</h2>
+    <p>André Franco · Rio de Janeiro</p>
+  </div>
+  <div class="sidebar-nav">
+    <div class="nav-section">Navegação</div>
+    <a class="nav-item active" onclick="showPage('home')" href="#">
+      <span class="icon">🏠</span> Início / Índice
+    </a>
+
+    <div class="nav-section" style="margin-top:8px">Sobre o Evento</div>
+    <a class="nav-item" onclick="showPage('evento')" href="#">
+      <span class="icon">📍</span> O Evento e a Estratégia
+    </a>
+    <a class="nav-item" onclick="showPage('equipe')" href="#">
+      <span class="icon">🎬</span> Equipe e Equipamentos
+    </a>
+
+    <div class="nav-section" style="margin-top:8px">Entrevistas</div>
+    <a class="nav-item" onclick="showPage('palestrantes')" href="#">
+      <span class="icon">🎤</span> Palestrantes Prioritários <span class="num">29</span>
+    </a>
+    <a class="nav-item" onclick="showPage('iao-palestrantes')" href="#">
+      <span class="icon">⚡</span> Isso ou Aquilo — Speakers
+    </a>
+    <a class="nav-item" onclick="showPage('iao-aleatorios')" href="#">
+      <span class="icon">🎲</span> Isso ou Aquilo — Aleatórios <span class="num">10</span>
+    </a>
+
+    <div class="nav-section" style="margin-top:8px">Produção</div>
+    <a class="nav-item" onclick="showPage('gravacao')" href="#">
+      <span class="icon">📹</span> Estratégia de Gravação
+    </a>
+    <a class="nav-item" onclick="showPage('posevento')" href="#">
+      <span class="icon">🔄</span> Pós-Evento e Edição
+    </a>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+
+  <!-- HOME / INDEX -->
+  <section class="page active" id="page-home">
+    <div class="page-header">
+      <div class="page-tag">Guia Completo</div>
+      <h1>Smart Summit 2026</h1>
+      <p class="page-subtitle">Tudo que você precisa para a cobertura de 12 e 13 de março no Rio de Janeiro. Navegue pelas seções usando o menu à esquerda ou clique nos cards abaixo.</p>
+    </div>
+
+    <div class="info-bar">
+      <div class="info-item">
+        <span class="info-label">Data</span>
+        <span class="info-value">12–13 Mar 2026</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Local</span>
+        <span class="info-value">Rio de Janeiro</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Palestrantes</span>
+        <span class="info-value">29 confirmados</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Formatos</span>
+        <span class="info-value">YouTube + Reels</span>
+      </div>
+    </div>
+
+    <div class="index-grid">
+      <a class="index-card" onclick="showPage('evento')" href="#">
+        <span class="ic-icon">📍</span>
+        <div class="ic-num">Seção 1–2</div>
+        <div class="ic-title">O Evento e a Estratégia</div>
+        <div class="ic-desc">Objetivos, pilares de conteúdo e o que você vai produzir nos dois dias.</div>
+      </a>
+      <a class="index-card" onclick="showPage('equipe')" href="#">
+        <span class="ic-icon">🎬</span>
+        <div class="ic-num">Seção 2</div>
+        <div class="ic-title">Equipe e Equipamentos</div>
+        <div class="ic-desc">Funções de cada pessoa e checklist completo de equipamentos para levar.</div>
+      </a>
+      <a class="index-card" onclick="showPage('palestrantes')" href="#">
+        <span class="ic-icon">🎤</span>
+        <div class="ic-num">Seção 3</div>
+        <div class="ic-title">Palestrantes Prioritários</div>
+        <div class="ic-desc">29 palestrantes organizados por prioridade com pautas sugeridas para cada entrevista.</div>
+      </a>
+      <a class="index-card" onclick="showPage('iao-palestrantes')" href="#">
+        <span class="ic-icon">⚡</span>
+        <div class="ic-num">Seção 4</div>
+        <div class="ic-title">Isso ou Aquilo — Speakers</div>
+        <div class="ic-desc">Perguntas específicas do formato "Isso ou Aquilo" para os palestrantes do evento.</div>
+      </a>
+      <a class="index-card" onclick="showPage('iao-aleatorios')" href="#">
+        <span class="ic-icon">🎲</span>
+        <div class="ic-num">Seção 5</div>
+        <div class="ic-title">Isso ou Aquilo — Aleatórios</div>
+        <div class="ic-desc">10 perguntas genéricas para abordar qualquer participante do evento. Formato ping-pong.</div>
+      </a>
+      <a class="index-card" onclick="showPage('gravacao')" href="#">
+        <span class="ic-icon">📹</span>
+        <div class="ic-num">Seção 6</div>
+        <div class="ic-title">Estratégia de Gravação</div>
+        <div class="ic-desc">Agenda modelo para os dois dias com dicas técnicas de áudio, luz e ângulos.</div>
+      </a>
+      <a class="index-card" onclick="showPage('posevento')" href="#">
+        <span class="ic-icon">🔄</span>
+        <div class="ic-num">Seção 7</div>
+        <div class="ic-title">Pós-Evento e Edição</div>
+        <div class="ic-desc">Pipeline de edição, calendário de postagem e nomenclatura do projeto no Drive.</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- EVENTO -->
+  <section class="page" id="page-evento">
+    <div class="page-header">
+      <div class="page-tag">Seção 1</div>
+      <h1>O Evento e a Estratégia</h1>
+      <p class="page-subtitle">Smart Summit 2026 — Rio de Janeiro, 12 e 13 de março</p>
+    </div>
+
+    <div class="info-bar">
+      <div class="info-item">
+        <span class="info-label">Data</span>
+        <span class="info-value">12–13 Mar 2026</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Local</span>
+        <span class="info-value">Rio de Janeiro</span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Palestrantes</span>
+        <span class="info-value">29 confirmados</span>
+      </div>
+    </div>
+
+    <h2>Sobre o Evento</h2>
+    <p>Smart Summit 2026 é um dos maiores eventos de investimentos e finanças do Brasil, reunindo palestrantes do mercado cripto, financeiro tradicional, tecnologia e empreendedorismo. É a oportunidade perfeita para capturar conteúdo denso com especialistas de alto nível em um único ambiente.</p>
+
+    <h2>Objetivo da Cobertura</h2>
+    <p>Produzir conteúdo de alta qualidade para Instagram e YouTube, explorando as intersecções entre criptoativos e mercado financeiro tradicional. A audiência de André está justamente nessa interseção.</p>
+
+    <h2>Os 4 Pilares de Conteúdo</h2>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">🎥 Entrevistas longas</div>
+        <p>10–15 minutos com palestrantes prioritários. Material para YouTube. Gravar em 16:9 horizontal com dois ângulos.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">⚡ Isso ou Aquilo</div>
+        <p>Formato rápido com palestrantes e participantes aleatórios. Material para Reels. Compilar respostas de 4–6 pessoas.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">🏛️ B-Roll do evento</div>
+        <p>Ambiente, stands, bastidores, palestras. Serve de cobertura para edição dos vídeos longos e Reels.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">💬 Compilados temáticos</div>
+        <p>"Qual sua aposta para 2026: Bitcoin ou S&P 500?" — múltiplas respostas editadas em sequência.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <span class="callout-icon">💡</span>
+      <div class="callout-body">
+        <strong>Estratégia central:</strong> Fazer a pergunta "Isso ou Aquilo" com o máximo de pessoas possível. Um único dia de evento pode render 20+ clips de Reel com custo mínimo de produção.
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIPE -->
+  <section class="page" id="page-equipe">
+    <div class="page-header">
+      <div class="page-tag">Seção 2</div>
+      <h1>Equipe e Equipamentos</h1>
+      <p class="page-subtitle">Funções, responsabilidades e o que levar para os dois dias</p>
+    </div>
+
+    <h2>Funções</h2>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">André Franco — Host</div>
+        <ul class="checklist">
+          <li>Conduzir todas as entrevistas</li>
+          <li>Fazer as perguntas "Isso ou Aquilo"</li>
+          <li>Aparecer em câmera para análises</li>
+          <li>Interagir com palestrantes e público</li>
+          <li>Gravar resumo diário em vertical</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title">Video Maker — Operação</div>
+        <ul class="checklist">
+          <li>Captar todas as imagens</li>
+          <li>Garantir áudio com microfones de lapela</li>
+          <li>Operar luzes portáteis nas entrevistas</li>
+          <li>Gravar segundo ângulo quando possível</li>
+          <li>Fazer backup diário do material</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Checklist de Equipamentos</h2>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">📱 Câmera e Estabilização</div>
+        <ul class="checklist">
+          <li>2 iPhones com espaço suficiente</li>
+          <li>Tripés para entrevistas longas</li>
+          <li>Gimbal para movimento suave</li>
+          <li>Suporte de ombro para B-roll</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title">🎙️ Áudio — CRÍTICO</div>
+        <ul class="checklist">
+          <li>2 microfones de lapela (sem fio preferível)</li>
+          <li>Adaptador Lightning/USB-C → P2</li>
+          <li>Testar antes de sair de casa</li>
+          <li>Backup: microfone de lapela com fio</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title">💡 Iluminação</div>
+        <ul class="checklist">
+          <li>Ring light portátil ou painel LED</li>
+          <li>Posicionar de frente para janela quando possível</li>
+          <li>Testar temperatura de cor (5600K recomendado)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title">🔋 Energia e Armazenamento</div>
+        <ul class="checklist">
+          <li>Power banks (mínimo 3, para 2 dias)</li>
+          <li>Cabo de carregamento para cada iPhone</li>
+          <li>Carregador rápido para a noite</li>
+          <li>Conferir espaço em disco antes de cada dia</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">
+      <span class="callout-icon">⚠️</span>
+      <div class="callout-body">
+        <strong>Microfone é não-negociável.</strong> O Smart Summit é um evento barulhento. Sem lapela, as entrevistas ficam inutilizáveis. Levar sempre dois microfones, com backup.
+      </div>
+    </div>
+  </section>
+
+  <!-- PALESTRANTES -->
+  <section class="page" id="page-palestrantes">
+    <div class="page-header">
+      <div class="page-tag">Seção 3</div>
+      <h1>Palestrantes Prioritários</h1>
+      <p class="page-subtitle">29 palestrantes organizados por prioridade de entrevista</p>
+    </div>
+
+    <div class="callout">
+      <span class="callout-icon">🎯</span>
+      <div class="callout-body">
+        <strong>Estratégia:</strong> Foque no Nível 1 primeiro. São os que têm maior sobreposição com a audiência cripto/financeiro de André. Nível 2 e 3 são oportunistas — se der tempo e acesso, ótimo.
+      </div>
+    </div>
+
+    <h2>Nível 1 — Máxima Prioridade</h2>
+
+    <div class="card">
+      <span class="priority priority-1">★ PRIORIDADE MÁXIMA</span>
+      <div class="card-title">Alexandre Van de Sande — ENS Foundation</div>
+      <div class="card-sub">Ethereum · Identidade Descentralizada · UX em Web3</div>
+      <p><strong>Pautas:</strong> Futuro dos domínios descentralizados · ENS vs. DNS · O papel da ENS no ecossistema Ethereum · Identidade on-chain</p>
+      <div style="margin-top:8px"><span class="tag tag-orange">Ethereum</span><span class="tag tag-blue">Identidade Digital</span><span class="tag tag-green">Web3</span></div>
+    </div>
+
+    <div class="card">
+      <span class="priority priority-1">★ PRIORIDADE MÁXIMA</span>
+      <div class="card-title">Afonso Dalvi — Lumx (Smart Contracts)</div>
+      <div class="card-sub">Web2 → Web3 · Tokenização · Account Abstraction</div>
+      <p><strong>Pautas:</strong> Como empresas tradicionais migram para Web3 · Tokenização de ativos reais · Account Abstraction para simplificar cripto</p>
+      <div style="margin-top:8px"><span class="tag tag-orange">Smart Contracts</span><span class="tag tag-blue">Tokenização</span></div>
+    </div>
+
+    <div class="card">
+      <span class="priority priority-1">★ PRIORIDADE MÁXIMA</span>
+      <div class="card-title">Andre Portilho — BTG Pactual (Head Digital Assets)</div>
+      <div class="card-sub">Cripto no maior banco de investimentos do Brasil</div>
+      <p><strong>Pautas:</strong> Produtos de ativos digitais no BTG · Regulação vs. inovação · CBDC Drex muda o sistema financeiro?</p>
+      <div style="margin-top:8px"><span class="tag tag-orange">BTG</span><span class="tag tag-blue">Regulação</span><span class="tag tag-green">CBDC</span></div>
+    </div>
+
+    <div class="card">
+      <span class="priority priority-1">★ PRIORIDADE MÁXIMA</span>
+      <div class="card-title">Thiago Sarandy — Binance (Regulatório)</div>
+      <div class="card-sub">Regulação de criptoativos no Brasil · Stablecoins · Exchanges</div>
+      <p><strong>Pautas:</strong> O que mudou na regulação cripto em 2026 · Stablecoins coexistindo com o real digital · O que exchanges precisam cumprir</p>
+      <div style="margin-top:8px"><span class="tag tag-orange">Binance</span><span class="tag tag-red">Regulação</span></div>
+    </div>
+
+    <h2>Nível 2 — Alta Prioridade</h2>
+
+    <div class="card">
+      <span class="priority priority-2">▲ ALTA PRIORIDADE</span>
+      <div class="card-title">Alex Carvalho — Trader CNPI-T</div>
+      <div class="card-sub">Day Trade · Análise Técnica · Gestão de Risco</div>
+      <p><strong>Pautas:</strong> Estratégias de trading em cripto para 2026 · Análise de mercado · Quando o mercado é irracional, o que fazer?</p>
+    </div>
+
+    <div class="card">
+      <span class="priority priority-2">▲ ALTA PRIORIDADE</span>
+      <div class="card-title">Daniel Maeda — B3 (Jurídico)</div>
+      <div class="card-sub">Regulação de mercado de capitais · ETFs cripto · Inovação</div>
+      <p><strong>Pautas:</strong> ETFs de cripto na B3: quando chegam mais? · Ativos digitais no mercado de capitais</p>
+    </div>
+
+    <div class="card">
+      <span class="priority priority-2">▲ ALTA PRIORIDADE</span>
+      <div class="card-title">Felipe Cabral — Santander (Crypto Assets)</div>
+      <div class="card-sub">Banco tradicional + cripto · Tokenização bancária</div>
+      <p><strong>Pautas:</strong> Como o Santander está tokenizando ativos · Banco tradicional: concorrência ou aliança com cripto?</p>
+    </div>
+
+    <div class="card">
+      <span class="priority priority-2">▲ ALTA PRIORIDADE</span>
+      <div class="card-title">Jorge Borges — Fireblocks (Head LATAM)</div>
+      <div class="card-sub">Custódia institucional de ativos digitais na América Latina</div>
+    </div>
+
+    <div class="card">
+      <span class="priority priority-2">▲ ALTA PRIORIDADE</span>
+      <div class="card-title">Alec Howard — Ruvo (CEO)</div>
+      <div class="card-sub">Fintech · Pagamentos transfronteiriços · Tokenização</div>
+    </div>
+
+    <div class="card">
+      <span class="priority priority-2">▲ ALTA PRIORIDADE</span>
+      <div class="card-title">Marcos Viriato — Parfin (CEO)</div>
+      <div class="card-sub">Infraestrutura de ativos digitais para bancos · DeFi institucional</div>
+    </div>
+
+    <h2>Nível 3 — Complementar (se houver acesso)</h2>
+
+    <div class="card">
+      <span class="priority priority-3">— COMPLEMENTAR</span>
+      <div class="card-title">Thiago Godoy — Papai Financeiro</div>
+      <p>Educação financeira para família · Psicologia do dinheiro</p>
+    </div>
+    <div class="card">
+      <span class="priority priority-3">— COMPLEMENTAR</span>
+      <div class="card-title">Luis Justo — CEO Rock in Rio / The Town / Lollapalooza</div>
+      <p>Liderança e gestão de grandes eventos · Inovação estratégica</p>
+    </div>
+    <div class="card">
+      <span class="priority priority-3">— COMPLEMENTAR</span>
+      <div class="card-title">Carlos Ferreirinha — Mercado de Luxo</div>
+      <p>Luxo como ativo alternativo · Gestão estratégica premium</p>
+    </div>
+    <div class="card">
+      <span class="priority priority-3">— COMPLEMENTAR</span>
+      <div class="card-title">Caio Coppolla — Comentarista Político</div>
+      <p>Análise de cenários políticos e impacto no mercado financeiro</p>
+    </div>
+    <div class="card">
+      <span class="priority priority-3">— COMPLEMENTAR</span>
+      <div class="card-title">Ana Westfal — Uniswap (Growth Lead LatAm)</div>
+      <p>Crescimento de comunidades Web3 · Mercados emergentes</p>
+    </div>
+  </section>
+
+  <!-- ISSO OU AQUILO PALESTRANTES -->
+  <section class="page" id="page-iao-palestrantes">
+    <div class="page-header">
+      <div class="page-tag">Seção 4</div>
+      <h1>Isso ou Aquilo — Speakers</h1>
+      <p class="page-subtitle">Perguntas rápidas para palestrantes. Gravar em 9:16 vertical · Máx 20s por resposta</p>
+    </div>
+
+    <div class="callout">
+      <span class="callout-icon">📱</span>
+      <div class="callout-body">
+        <strong>Como usar:</strong> Escolha 7–10 perguntas por palestrante (misturando universais + específicas do perfil). Compilar em Reel com cortes rápidos. Adicionar música animada e legenda com a pergunta na tela.
+      </div>
+    </div>
+
+    <h2>Perguntas Universais (qualquer palestrante)</h2>
+
+    <div class="q-card">
+      <div class="q-num">01</div>
+      <div class="q-content">
+        <div class="q-title">Bitcoin ou Ethereum?</div>
+        <div class="q-vs"><span class="q-option">Bitcoin</span><span class="q-vs-sep">vs</span><span class="q-option">Ethereum</span></div>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-num">02</div>
+      <div class="q-content">
+        <div class="q-title">DeFi ou CeFi?</div>
+        <div class="q-vs"><span class="q-option">DeFi</span><span class="q-vs-sep">vs</span><span class="q-option">CeFi</span></div>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-num">03</div>
+      <div class="q-content">
+        <div class="q-title">Bull Run 2026 — vai acontecer ou ainda lateraliza?</div>
+        <div class="q-vs"><span class="q-option">Bull Run 2026</span><span class="q-vs-sep">vs</span><span class="q-option">Lateralização</span></div>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-num">04</div>
+      <div class="q-content">
+        <div class="q-title">Regulação — ajuda ou atrapalha o mercado cripto?</div>
+        <div class="q-vs"><span class="q-option">Ajuda</span><span class="q-vs-sep">vs</span><span class="q-option">Atrapalha</span></div>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-num">05</div>
+      <div class="q-content">
+        <div class="q-title">Cripto como reserva de valor ou como especulação?</div>
+        <div class="q-vs"><span class="q-option">Reserva de Valor</span><span class="q-vs-sep">vs</span><span class="q-option">Especulação</span></div>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-num">06</div>
+      <div class="q-content">
+        <div class="q-title">Web3 em 5 anos — mainstream ou ainda nicho?</div>
+        <div class="q-vs"><span class="q-option">Mainstream</span><span class="q-vs-sep">vs</span><span class="q-option">Ainda nicho</span></div>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-num">07</div>
+      <div class="q-content">
+        <div class="q-title">Altcoins ou só Bitcoin?</div>
+        <div class="q-vs"><span class="q-option">Altcoins</span><span class="q-vs-sep">vs</span><span class="q-option">Só Bitcoin</span></div>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-num">08</div>
+      <div class="q-content">
+        <div class="q-title">Hardware wallet ou exchange custodial?</div>
+        <div class="q-vs"><span class="q-option">Hardware Wallet</span><span class="q-vs-sep">vs</span><span class="q-option">Exchange Custodial</span></div>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-num">09</div>
+      <div class="q-content">
+        <div class="q-title">Stablecoin em dólar ou stablecoin em real?</div>
+        <div class="q-vs"><span class="q-option">Stablecoin USD</span><span class="q-vs-sep">vs</span><span class="q-option">Stablecoin BRL</span></div>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-num">10</div>
+      <div class="q-content">
+        <div class="q-title">Tokenização muda mais bancos ou mercado de capitais?</div>
+        <div class="q-vs"><span class="q-option">Bancos</span><span class="q-vs-sep">vs</span><span class="q-option">Mercado de Capitais</span></div>
+      </div>
+    </div>
+
+    <h2>Para Bancos e Financeiras</h2>
+
+    <div class="q-card">
+      <div class="q-num">11</div>
+      <div class="q-content">
+        <div class="q-title">CBDC Drex — vai funcionar ou será esquecido?</div>
+        <div class="q-vs"><span class="q-option">Vai funcionar</span><span class="q-vs-sep">vs</span><span class="q-option">Será esquecido</span></div>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-num">12</div>
+      <div class="q-content">
+        <div class="q-title">Banco tradicional sobrevive à tokenização?</div>
+        <div class="q-vs"><span class="q-option">Sobrevive</span><span class="q-vs-sep">vs</span><span class="q-option">Não sobrevive</span></div>
+      </div>
+    </div>
+
+    <h2>Para Traders e Analistas</h2>
+
+    <div class="q-card">
+      <div class="q-num">13</div>
+      <div class="q-content">
+        <div class="q-title">Stop loss ou HODL na queda?</div>
+        <div class="q-vs"><span class="q-option">Stop Loss</span><span class="q-vs-sep">vs</span><span class="q-option">HODL</span></div>
+      </div>
+    </div>
+    <div class="q-card">
+      <div class="q-num">14</div>
+      <div class="q-content">
+        <div class="q-title">Alavancagem — ferramenta ou armadilha?</div>
+        <div class="q-vs"><span class="q-option">Ferramenta</span><span class="q-vs-sep">vs</span><span class="q-option">Armadilha</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ISSO OU AQUILO ALEATÓRIOS -->
+  <section class="page" id="page-iao-aleatorios">
+    <div class="page-header">
+      <div class="page-tag">Seção 5 — NOVO</div>
+      <h1>Isso ou Aquilo — Participantes Aleatórios</h1>
+      <p class="page-subtitle">10 perguntas genéricas para abordar qualquer pessoa do evento. Não precisa ser especialista.</p>
+    </div>
+
+    <div class="callout">
+      <span class="callout-icon">🎲</span>
+      <div class="callout-body">
+        <strong>Formato ping-pong:</strong> Compilar 4–6 pessoas respondendo a mesma pergunta. Ideal para gravar nos coffee breaks e intervalos, abordando participantes no corredor ou nos stands.
+      </div>
+    </div>
+
+    <div class="callout" style="background:rgba(52,211,153,0.07); border-color:rgba(52,211,153,0.25)">
+      <span class="callout-icon">📹</span>
+      <div class="callout-body" style="color:#c0c8d8">
+        <strong style="color:var(--green)">Como gravar:</strong> Vertical 9:16 com o evento visível ao fundo · Pergunta aparece como texto na tela antes da resposta · Cada pessoa responde em no máximo 15 segundos · Compilar com cortes de 2–3 segundos por pessoa · Adicionar música animada no edit.
+      </div>
+    </div>
+
+    <h2>As 10 Perguntas</h2>
+
+    <div class="q-card">
+      <div class="q-num">01</div>
+      <div class="q-content">
+        <div class="q-title">Bitcoin ou Ouro?</div>
+        <div class="q-sub">Como reserva de valor para o longo prazo — qual você confia mais?</div>
+        <div class="q-vs"><span class="q-option">Bitcoin</span><span class="q-vs-sep">vs</span><span class="q-option">Ouro</span></div>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">02</div>
+      <div class="q-content">
+        <div class="q-title">Buy and Hold ou Day Trade?</div>
+        <div class="q-sub">Qual perfil de investidor você se identifica mais?</div>
+        <div class="q-vs"><span class="q-option">Buy &amp; Hold</span><span class="q-vs-sep">vs</span><span class="q-option">Day Trade</span></div>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">03</div>
+      <div class="q-content">
+        <div class="q-title">Criptomoeda ou Ações?</div>
+        <div class="q-sub">Se tivesse que escolher só um mercado para investir em 2026, qual seria?</div>
+        <div class="q-vs"><span class="q-option">Criptomoeda</span><span class="q-vs-sep">vs</span><span class="q-option">Ações</span></div>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">04</div>
+      <div class="q-content">
+        <div class="q-title">Banco digital ou Banco tradicional?</div>
+        <div class="q-sub">Para o seu dia a dia financeiro, qual você prefere?</div>
+        <div class="q-vs"><span class="q-option">Banco Digital</span><span class="q-vs-sep">vs</span><span class="q-option">Banco Tradicional</span></div>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">05</div>
+      <div class="q-content">
+        <div class="q-title">Risco alto com potencial alto, ou segurança com retorno menor?</div>
+        <div class="q-sub">Qual a sua filosofia de investimento?</div>
+        <div class="q-vs"><span class="q-option">Risco Alto</span><span class="q-vs-sep">vs</span><span class="q-option">Segurança</span></div>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">06</div>
+      <div class="q-content">
+        <div class="q-title">Análise técnica ou Análise fundamentalista?</div>
+        <div class="q-sub">Na hora de decidir um investimento, o que você consulta mais?</div>
+        <div class="q-vs"><span class="q-option">Análise Técnica</span><span class="q-vs-sep">vs</span><span class="q-option">Fundamentalista</span></div>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">07</div>
+      <div class="q-content">
+        <div class="q-title">Curto prazo ou Longo prazo?</div>
+        <div class="q-sub">Você pensa nos seus investimentos em meses ou em anos?</div>
+        <div class="q-vs"><span class="q-option">Curto Prazo</span><span class="q-vs-sep">vs</span><span class="q-option">Longo Prazo</span></div>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">08</div>
+      <div class="q-content">
+        <div class="q-title">Empreender ou Investir?</div>
+        <div class="q-sub">Se tivesse R$100 mil sobrando agora, abria um negócio ou colocava no mercado?</div>
+        <div class="q-vs"><span class="q-option">Empreender</span><span class="q-vs-sep">vs</span><span class="q-option">Investir</span></div>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">09</div>
+      <div class="q-content">
+        <div class="q-title">Dólar ou Bitcoin para proteção do real?</div>
+        <div class="q-sub">Qual você escolheria para guardar valor fora do real?</div>
+        <div class="q-vs"><span class="q-option">Dólar</span><span class="q-vs-sep">vs</span><span class="q-option">Bitcoin</span></div>
+      </div>
+    </div>
+
+    <div class="q-card">
+      <div class="q-num">10</div>
+      <div class="q-content">
+        <div class="q-title">Diversificar muito ou Concentrar em poucos ativos?</div>
+        <div class="q-sub">Muitos ovos em muitas cestas, ou apostar forte em poucas escolhas?</div>
+        <div class="q-vs"><span class="q-option">Diversificar</span><span class="q-vs-sep">vs</span><span class="q-option">Concentrar</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GRAVAÇÃO -->
+  <section class="page" id="page-gravacao">
+    <div class="page-header">
+      <div class="page-tag">Seção 6</div>
+      <h1>Estratégia de Gravação</h1>
+      <p class="page-subtitle">Agenda modelo para os dois dias + dicas técnicas essenciais</p>
+    </div>
+
+    <h2>Agenda Modelo (aplicar nos dois dias)</h2>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot">
+          <div class="timeline-circle">1</div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-body">
+          <div class="timeline-title">☀️ Manhã — antes das palestras</div>
+          <ul class="checklist">
+            <li>Chegar cedo para gravar B-roll do local vazio (sem pessoas)</li>
+            <li>Configurar equipamento e testar áudio com o lapela</li>
+            <li>Identificar quais palestrantes prioritários estão no evento naquele dia</li>
+            <li>Verificar agenda do dia para saber onde estarão os palestrantes</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot">
+          <div class="timeline-circle">2</div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-body">
+          <div class="timeline-title">🎤 Durante o evento</div>
+          <ul class="checklist">
+            <li>Gravar palestras discretamente (ângulo lateral, não atrapalhar)</li>
+            <li>Buscar momentos de corredor para entrevistas rápidas</li>
+            <li>Gravar reações do público em momentos de impacto</li>
+            <li>Anotar timecodes dos melhores momentos das palestras</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot">
+          <div class="timeline-circle">3</div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-body">
+          <div class="timeline-title">☕ Intervalos e Coffee Break — momento IDEAL</div>
+          <ul class="checklist">
+            <li>Abordar palestrantes em tom casual antes/depois das palestras</li>
+            <li>"Isso ou Aquilo" com participantes aleatórios nos corredores</li>
+            <li>Gravar interações espontâneas entre André e outros participantes</li>
+            <li>Ideal para compilados de pergunta única com múltiplas respostas</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot">
+          <div class="timeline-circle">4</div>
+        </div>
+        <div class="timeline-body">
+          <div class="timeline-title">🌙 Final do dia</div>
+          <ul class="checklist">
+            <li>Resumo rápido de André (câmera na mão, vertical, 60s)</li>
+            <li>Identificar os 3 melhores clips do dia — candidatos a Reel imediato</li>
+            <li>Fazer backup de todo o material para nuvem/HD</li>
+            <li>Carregar todos os equipamentos para o dia seguinte</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <h2>Dicas Técnicas</h2>
+
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">🎙️ Áudio</div>
+        <p>Microfone de lapela SEMPRE em entrevistas. O evento é barulhento — sem lapela, o áudio é inutilizável. Testar antes de cada entrevista.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">💡 Iluminação</div>
+        <p>Posicionar entrevistado de frente para janela quando possível. Se não houver luz natural, usar o painel LED portátil a 45° do rosto.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">📐 Ângulos</div>
+        <p>Entrevistas longas: segundo iPhone em tripé para ângulo diferente. Isso dobra o material de corte e melhora muito a edição final.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">🖼️ Enquadramento</div>
+        <p>Entrevistas: busto em frente. "Isso ou Aquilo": câmera mais baixa, evento visível ao fundo. B-roll: movimentos lentos e suaves.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <span class="callout-icon">🏆</span>
+      <div class="callout-body">
+        <strong>A regra de ouro:</strong> Um Reel de "Isso ou Aquilo" com 5 pessoas respondendo pode ser gravado em 10 minutos num coffee break. São 5 respostas de 15s cada = 1 Reel completo. Priorize isso sempre que tiver um intervalo.
+      </div>
+    </div>
+  </section>
+
+  <!-- PÓS-EVENTO -->
+  <section class="page" id="page-posevento">
+    <div class="page-header">
+      <div class="page-tag">Seção 7</div>
+      <h1>Pós-Evento e Edição</h1>
+      <p class="page-subtitle">Pipeline de edição, calendário de postagem e como organizar o material</p>
+    </div>
+
+    <h2>Priorização de Edição</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot">
+          <div class="timeline-circle">1</div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-body">
+          <div class="timeline-title">Reels e Stories — URGENTE</div>
+          <p>Aproveitar o hype do evento enquanto ele está acontecendo. Publicar no próprio dia 13 ou no dia 14 no máximo.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">
+          <div class="timeline-circle">2</div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-body">
+          <div class="timeline-title">Compilados "Isso ou Aquilo"</div>
+          <p>Edição rápida: cortar respostas, adicionar pergunta na tela, música e legenda. Publicar nos dias 14–15.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">
+          <div class="timeline-circle">3</div>
+          <div class="timeline-line"></div>
+        </div>
+        <div class="timeline-body">
+          <div class="timeline-title">Entrevistas completas para YouTube</div>
+          <p>Edição mais cuidadosa: cortes, B-roll, lower thirds, thumbnail. Publicar nos dias 16–18.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">
+          <div class="timeline-circle">4</div>
+        </div>
+        <div class="timeline-body">
+          <div class="timeline-title">Vídeo resumo / destaques do evento</div>
+          <p>Compilado geral dos melhores momentos. Semana 2 após o evento.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2>Pipeline de Edição (automatizado)</h2>
+    <p>Após o evento, usar o comando <strong>/visita-editor</strong> com a pasta Drive do evento para rodar o pipeline completo:</p>
+
+    <div class="pipeline">
+      <div class="pipe-step">
+        <div class="ps-icon">📁</div>
+        <div class="ps-label">Organizar Drive</div>
+        <div class="ps-agent">visita-organizador</div>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step">
+        <div class="ps-icon">🎙️</div>
+        <div class="ps-label">Transcrever</div>
+        <div class="ps-agent">visita-transcritor</div>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step">
+        <div class="ps-icon">🔍</div>
+        <div class="ps-label">Analisar</div>
+        <div class="ps-agent">visita-analista</div>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step">
+        <div class="ps-icon">📺</div>
+        <div class="ps-label">Roteiro YT</div>
+        <div class="ps-agent">editor-youtube</div>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step">
+        <div class="ps-icon">📱</div>
+        <div class="ps-label">Roteiro Reels</div>
+        <div class="ps-agent">editor-instagram</div>
+      </div>
+    </div>
+
+    <h2>Calendário de Postagem</h2>
+    <div class="grid-2">
+      <div class="step-box">
+        <span class="step-num">Dia 13</span>
+        <div class="step-title" style="margin-top:8px">Durante o evento</div>
+        <p>Stories ao vivo</p>
+        <p>1 Reel rápido de bastidores</p>
+      </div>
+      <div class="step-box">
+        <span class="step-num">Dias 14–15</span>
+        <div class="step-title" style="margin-top:8px">Pós-evento imediato</div>
+        <p>2–3 Reels "Isso ou Aquilo"</p>
+        <p>Stories com destaques</p>
+      </div>
+      <div class="step-box">
+        <span class="step-num">Dias 16–18</span>
+        <div class="step-title" style="margin-top:8px">Conteúdo longo</div>
+        <p>Entrevistas no YouTube</p>
+        <p>Reels adicionais</p>
+      </div>
+      <div class="step-box">
+        <span class="step-num">Semana 2</span>
+        <div class="step-title" style="margin-top:8px">Síntese</div>
+        <p>Vídeo resumo do evento</p>
+        <p>Análises e reflexões</p>
+      </div>
+    </div>
+
+    <h2>Nomenclatura do Projeto</h2>
+    <div class="card">
+      <div class="card-title">Projeto: evento_smartsummit_202503</div>
+      <p>Pasta Drive: <span style="color:var(--accent);font-family:monospace">📁 evento_smartsummit_202503</span></p>
+      <ul class="checklist" style="margin-top:12px">
+        <li>📹 YOUTUBE - HORIZONTAL → 01 Clips Principais / 02 Complementares / 03 B-Roll</li>
+        <li>📱 INSTAGRAM - VERTICAL → 01 Clips Principais / 02 B-Roll</li>
+        <li>❓ INDEFINIDO — Verificar Manualmente</li>
+        <li>📄 Documentos de Edição (roteiros Google Docs)</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  function showPage(pageId) {
+    // Hide all pages
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+
+    // Show target page
+    const page = document.getElementById('page-' + pageId);
+    if (page) {
+      page.classList.add('active');
+      window.scrollTo(0, 0);
+    }
+
+    // Mark nav item active
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+      const onclick = item.getAttribute('onclick');
+      if (onclick && onclick.includes("'" + pageId + "'")) {
+        item.classList.add('active');
+      }
+    });
+
+    // Close sidebar on mobile
+    if (window.innerWidth <= 768) {
+      document.getElementById('sidebar').classList.remove('open');
+    }
+
+    return false;
+  }
+
+  function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('open');
+  }
+
+  // Close sidebar when clicking outside on mobile
+  document.addEventListener('click', function(e) {
+    const sidebar = document.getElementById('sidebar');
+    const hamburger = document.querySelector('.hamburger');
+    if (window.innerWidth <= 768 && !sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+      sidebar.classList.remove('open');
+    }
+  });
+</script>
+</body>
+</html>
