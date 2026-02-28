@@ -6,1432 +6,877 @@
   <title>Smart Summit 2026 — Guia de Conteúdo</title>
   <style>
     :root {
-      --bg: #0d0f14;
-      --bg2: #13161e;
-      --bg3: #1a1e29;
-      --border: #252a38;
-      --accent: #f7c948;
-      --accent2: #e8a020;
-      --text: #e8eaf0;
-      --muted: #8892a4;
-      --link: #60a5fa;
-      --green: #34d399;
-      --red: #f87171;
-      --sidebar-w: 260px;
+      --bg: #0d0f14; --bg2: #13161e; --bg3: #1a1e29; --border: #252a38;
+      --accent: #f7c948; --text: #e8eaf0; --muted: #8892a4;
+      --link: #60a5fa; --green: #34d399; --red: #f87171;
+      --sidebar-w: 270px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-      display: flex;
-    }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); display: flex; min-height: 100vh; }
 
     /* SIDEBAR */
-    .sidebar {
-      width: var(--sidebar-w);
-      min-height: 100vh;
-      background: var(--bg2);
-      border-right: 1px solid var(--border);
-      position: fixed;
-      top: 0; left: 0;
-      overflow-y: auto;
-      z-index: 100;
-    }
-    .sidebar-logo {
-      padding: 24px 20px 16px;
-      border-bottom: 1px solid var(--border);
-    }
-    .sidebar-logo .event-badge {
-      display: inline-block;
-      background: var(--accent);
-      color: #000;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      padding: 3px 8px;
-      border-radius: 4px;
-      margin-bottom: 8px;
-    }
-    .sidebar-logo h2 {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.3;
-    }
-    .sidebar-logo p {
-      font-size: 11px;
-      color: var(--muted);
-      margin-top: 4px;
-    }
-    .sidebar-nav {
-      padding: 12px 0;
-    }
-    .nav-section {
-      padding: 6px 20px 4px;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      color: var(--muted);
-      text-transform: uppercase;
-    }
-    .nav-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 9px 20px;
-      font-size: 13px;
-      color: var(--muted);
-      cursor: pointer;
-      border-left: 3px solid transparent;
-      transition: all 0.15s;
-      text-decoration: none;
-    }
-    .nav-item:hover {
-      background: var(--bg3);
-      color: var(--text);
-    }
-    .nav-item.active {
-      background: var(--bg3);
-      color: var(--accent);
-      border-left-color: var(--accent);
-    }
-    .nav-item .icon {
-      font-size: 16px;
-      width: 20px;
-      text-align: center;
-    }
-    .nav-item .num {
-      font-size: 11px;
-      background: var(--bg3);
-      color: var(--muted);
-      padding: 1px 6px;
-      border-radius: 10px;
-      margin-left: auto;
-    }
-    .nav-item.active .num {
-      background: var(--accent);
-      color: #000;
-    }
+    .sidebar { width: var(--sidebar-w); min-height: 100vh; background: var(--bg2); border-right: 1px solid var(--border); position: fixed; top: 0; left: 0; overflow-y: auto; z-index: 100; }
+    .sidebar-logo { padding: 20px 18px 14px; border-bottom: 1px solid var(--border); }
+    .event-badge { display: inline-block; background: var(--accent); color: #000; font-size: 9px; font-weight: 800; letter-spacing: 1.5px; padding: 2px 7px; border-radius: 4px; margin-bottom: 8px; }
+    .sidebar-logo h2 { font-size: 14px; font-weight: 700; line-height: 1.3; }
+    .sidebar-logo p { font-size: 11px; color: var(--muted); margin-top: 3px; }
+    .nav-section { padding: 10px 18px 3px; font-size: 9px; font-weight: 800; letter-spacing: 2px; color: var(--muted); text-transform: uppercase; }
+    .nav-item { display: flex; align-items: center; gap: 9px; padding: 8px 18px; font-size: 13px; color: var(--muted); cursor: pointer; border-left: 3px solid transparent; transition: all 0.15s; text-decoration: none; }
+    .nav-item:hover { background: var(--bg3); color: var(--text); }
+    .nav-item.active { background: var(--bg3); color: var(--accent); border-left-color: var(--accent); font-weight: 600; }
+    .nav-item .icon { font-size: 15px; width: 18px; text-align: center; flex-shrink: 0; }
+    .nav-badge { font-size: 10px; background: var(--bg3); color: var(--muted); padding: 1px 5px; border-radius: 8px; margin-left: auto; flex-shrink: 0; }
+    .nav-item.active .nav-badge { background: var(--accent); color: #000; }
 
-    /* MAIN CONTENT */
-    .main {
-      margin-left: var(--sidebar-w);
-      flex: 1;
-      min-height: 100vh;
-    }
-
-    /* PAGE (each section) */
-    .page {
-      display: none;
-      padding: 48px 56px;
-      max-width: 860px;
-    }
+    /* MAIN */
+    .main { margin-left: var(--sidebar-w); flex: 1; }
+    .page { display: none; padding: 44px 52px; max-width: 900px; }
     .page.active { display: block; }
+    .page-header { margin-bottom: 32px; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+    .page-tag { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    .page-tag::before { content: ''; display: block; width: 18px; height: 2px; background: var(--accent); }
+    .page h1 { font-size: 28px; font-weight: 800; line-height: 1.2; margin-bottom: 6px; }
+    .page-sub { font-size: 15px; color: var(--muted); line-height: 1.5; }
 
-    /* PAGE HEADER */
-    .page-header {
-      margin-bottom: 40px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid var(--border);
-    }
-    .page-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 12px;
-    }
-    .page-tag::before {
-      content: '';
-      display: block;
-      width: 20px;
-      height: 2px;
-      background: var(--accent);
-    }
-    .page h1 {
-      font-size: 32px;
-      font-weight: 800;
-      line-height: 1.2;
-      color: var(--text);
-      margin-bottom: 8px;
-    }
-    .page-subtitle {
-      font-size: 16px;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-
-    /* TYPOGRAPHY */
-    h2 {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--text);
-      margin: 32px 0 12px;
-    }
-    h2:first-of-type { margin-top: 0; }
-    h3 {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--accent);
-      margin: 20px 0 8px;
-    }
-    p {
-      font-size: 14px;
-      color: #c0c8d8;
-      line-height: 1.7;
-      margin-bottom: 12px;
-    }
-
-    /* CARDS / BOXES */
-    .card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 20px 24px;
-      margin-bottom: 16px;
-    }
-    .card-title {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 6px;
-    }
-    .card-sub {
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 10px;
-      font-style: italic;
-    }
-    .card p { font-size: 13px; margin-bottom: 6px; }
-
-    /* TAGS */
-    .tag {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 600;
-      padding: 3px 8px;
-      border-radius: 4px;
-      margin-right: 6px;
-      margin-bottom: 4px;
-    }
-    .tag-orange { background: rgba(247,201,72,0.15); color: var(--accent); }
-    .tag-blue { background: rgba(96,165,250,0.15); color: var(--link); }
-    .tag-green { background: rgba(52,211,153,0.15); color: var(--green); }
-    .tag-red { background: rgba(248,113,113,0.15); color: var(--red); }
-
-    /* PRIORITY BADGE */
-    .priority {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      padding: 2px 8px;
-      border-radius: 20px;
-      margin-bottom: 8px;
-    }
-    .priority-1 { background: rgba(247,201,72,0.2); color: var(--accent); border: 1px solid rgba(247,201,72,0.3); }
-    .priority-2 { background: rgba(96,165,250,0.2); color: var(--link); border: 1px solid rgba(96,165,250,0.3); }
-    .priority-3 { background: rgba(148,163,184,0.15); color: var(--muted); border: 1px solid rgba(148,163,184,0.2); }
-
-    /* QUESTION CARD */
-    .q-card {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 16px 20px;
-      margin-bottom: 10px;
-      transition: border-color 0.2s;
-    }
-    .q-card:hover { border-color: var(--accent); }
-    .q-num {
-      font-size: 22px;
-      font-weight: 900;
-      color: var(--accent);
-      opacity: 0.4;
-      min-width: 32px;
-      line-height: 1;
-    }
-    .q-content {}
-    .q-title {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 4px;
-    }
-    .q-sub {
-      font-size: 12px;
-      color: var(--muted);
-      line-height: 1.5;
-    }
-    .q-vs {
-      display: flex;
-      gap: 8px;
-      margin-top: 8px;
-      align-items: center;
-    }
-    .q-option {
-      font-size: 12px;
-      font-weight: 700;
-      padding: 4px 12px;
-      border-radius: 20px;
-      border: 1px solid var(--border);
-      color: var(--text);
-    }
-    .q-option:first-child { background: rgba(247,201,72,0.1); border-color: rgba(247,201,72,0.3); }
-    .q-option:last-child { background: rgba(96,165,250,0.1); border-color: rgba(96,165,250,0.3); }
-    .q-vs-sep { color: var(--muted); font-size: 11px; font-weight: 700; }
-
-    /* CHECKLIST */
-    .checklist {
-      list-style: none;
-      margin: 8px 0 16px;
-    }
-    .checklist li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      font-size: 13px;
-      color: #c0c8d8;
-      padding: 6px 0;
-      border-bottom: 1px solid var(--border);
-      line-height: 1.5;
-    }
-    .checklist li:last-child { border-bottom: none; }
-    .checklist li::before {
-      content: '✓';
-      color: var(--green);
-      font-weight: 700;
-      font-size: 12px;
-      margin-top: 2px;
-      flex-shrink: 0;
-    }
-
-    /* TIMELINE */
-    .timeline {
-      margin: 16px 0;
-    }
-    .timeline-item {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 20px;
-    }
-    .timeline-dot {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0;
-    }
-    .timeline-circle {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
-      font-weight: 800;
-      color: #000;
-      flex-shrink: 0;
-    }
-    .timeline-line {
-      width: 2px;
-      flex: 1;
-      background: var(--border);
-      margin: 4px auto 0;
-    }
-    .timeline-body {
-      flex: 1;
-      padding-bottom: 8px;
-    }
-    .timeline-title {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 6px;
-      margin-top: 4px;
-    }
-    .timeline-body p { font-size: 13px; margin-bottom: 4px; }
-
-    /* CALLOUT */
-    .callout {
-      display: flex;
-      gap: 14px;
-      background: rgba(247,201,72,0.07);
-      border: 1px solid rgba(247,201,72,0.25);
-      border-radius: 8px;
-      padding: 16px 20px;
-      margin: 20px 0;
-    }
-    .callout-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
-    .callout-body { font-size: 13px; color: #c0c8d8; line-height: 1.6; }
-    .callout-body strong { color: var(--accent); }
-
-    /* GRID */
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin: 12px 0 20px;
-    }
-
-    /* STEP BOXES */
-    .step-box {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 16px;
-      position: relative;
-    }
-    .step-box .step-num {
-      position: absolute;
-      top: -10px;
-      left: 16px;
-      background: var(--accent);
-      color: #000;
-      font-size: 11px;
-      font-weight: 800;
-      padding: 2px 8px;
-      border-radius: 10px;
-    }
-    .step-box .step-title {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 6px;
-    }
-    .step-box p { font-size: 12px; margin-bottom: 4px; }
+    h2 { font-size: 18px; font-weight: 700; margin: 28px 0 12px; }
+    h3 { font-size: 14px; font-weight: 700; color: var(--accent); margin: 18px 0 8px; }
+    p { font-size: 13px; color: #c0c8d8; line-height: 1.7; margin-bottom: 10px; }
+    strong { color: var(--text); }
 
     /* INDEX CARDS */
-    .index-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 32px;
-    }
-    .index-card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-      cursor: pointer;
-      transition: all 0.2s;
-      text-decoration: none;
-    }
-    .index-card:hover {
-      border-color: var(--accent);
-      background: var(--bg3);
-      transform: translateY(-2px);
-    }
-    .index-card .ic-icon {
-      font-size: 28px;
-      margin-bottom: 12px;
-      display: block;
-    }
-    .index-card .ic-num {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--accent);
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-    .index-card .ic-title {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.3;
-      margin-bottom: 6px;
-    }
-    .index-card .ic-desc {
-      font-size: 12px;
-      color: var(--muted);
-      line-height: 1.5;
-    }
+    .index-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-top: 28px; }
+    .index-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 22px; cursor: pointer; transition: all 0.2s; text-decoration: none; display: block; }
+    .index-card:hover { border-color: var(--accent); background: var(--bg3); transform: translateY(-2px); }
+    .ic-icon { font-size: 26px; margin-bottom: 10px; display: block; }
+    .ic-num { font-size: 10px; font-weight: 700; color: var(--accent); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 5px; }
+    .ic-title { font-size: 14px; font-weight: 700; color: var(--text); line-height: 1.3; margin-bottom: 5px; }
+    .ic-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
 
     /* INFO BAR */
-    .info-bar {
-      display: flex;
-      gap: 24px;
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 16px 24px;
-      margin-bottom: 32px;
-    }
-    .info-item {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-    .info-label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-    .info-value {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--text);
-    }
+    .info-bar { display: flex; gap: 20px; flex-wrap: wrap; background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 14px 20px; margin-bottom: 28px; }
+    .info-item { display: flex; flex-direction: column; gap: 2px; }
+    .info-label { font-size: 9px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+    .info-value { font-size: 14px; font-weight: 700; }
 
-    /* PIPELINE */
-    .pipeline {
-      display: flex;
-      align-items: center;
-      gap: 0;
-      overflow-x: auto;
-      margin: 16px 0 24px;
-    }
-    .pipe-step {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 12px 16px;
-      min-width: 120px;
-      text-align: center;
-      flex-shrink: 0;
-    }
-    .pipe-step .ps-icon { font-size: 20px; margin-bottom: 4px; }
-    .pipe-step .ps-label { font-size: 11px; font-weight: 700; color: var(--text); }
-    .pipe-step .ps-agent { font-size: 10px; color: var(--accent); margin-top: 2px; }
-    .pipe-arrow {
-      color: var(--muted);
-      font-size: 18px;
-      padding: 0 8px;
-      flex-shrink: 0;
-    }
+    /* TABLE */
+    .data-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 13px; }
+    .data-table th { background: var(--bg3); color: var(--accent); font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 10px 14px; text-align: left; border-bottom: 2px solid var(--border); }
+    .data-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: #c0c8d8; vertical-align: top; }
+    .data-table tr:hover td { background: var(--bg3); }
 
-    /* MOBILE */
-    .hamburger {
-      display: none;
-      position: fixed;
-      top: 16px;
-      left: 16px;
-      z-index: 200;
-      background: var(--accent);
-      color: #000;
-      border: none;
-      border-radius: 8px;
-      width: 40px;
-      height: 40px;
-      font-size: 20px;
-      cursor: pointer;
-    }
+    /* AGENDA TABLE */
+    .agenda-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 12px; }
+    .agenda-table th { background: var(--bg3); color: var(--muted); font-size: 10px; font-weight: 700; text-transform: uppercase; padding: 8px 12px; text-align: left; border-bottom: 2px solid var(--border); }
+    .agenda-table td { padding: 9px 12px; border-bottom: 1px solid var(--border); color: #c0c8d8; vertical-align: top; line-height: 1.5; }
+    .agenda-table td:first-child { color: var(--accent); font-weight: 700; font-size: 11px; white-space: nowrap; }
+    .agenda-table tr:hover td { background: rgba(247,201,72,0.04); }
+
+    /* SPEAKER QUICK NAV */
+    .speaker-nav { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 28px; padding: 16px; background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; }
+    .speaker-chip { font-size: 11px; padding: 4px 10px; border-radius: 20px; border: 1px solid var(--border); color: var(--muted); cursor: pointer; transition: all 0.15s; text-decoration: none; display: inline-block; }
+    .speaker-chip:hover { border-color: var(--accent); color: var(--accent); background: rgba(247,201,72,0.08); }
+
+    /* SPEAKER SECTION */
+    .speaker-section { margin-bottom: 32px; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .speaker-header { background: var(--bg2); padding: 16px 20px; cursor: pointer; display: flex; align-items: center; gap: 14px; transition: background 0.15s; }
+    .speaker-header:hover { background: var(--bg3); }
+    .speaker-num { font-size: 12px; font-weight: 800; color: var(--accent); background: rgba(247,201,72,0.12); border: 1px solid rgba(247,201,72,0.25); padding: 3px 9px; border-radius: 20px; flex-shrink: 0; }
+    .speaker-info { flex: 1; }
+    .speaker-name { font-size: 15px; font-weight: 700; color: var(--text); }
+    .speaker-co { font-size: 12px; color: var(--muted); margin-top: 1px; }
+    .speaker-toggle { color: var(--muted); font-size: 12px; transition: transform 0.2s; flex-shrink: 0; }
+    .speaker-section.open .speaker-toggle { transform: rotate(180deg); }
+    .speaker-body { display: none; padding: 0 20px 16px; background: var(--bg); }
+    .speaker-section.open .speaker-body { display: block; }
+    .speaker-foco { font-size: 12px; color: var(--muted); padding: 10px 0 14px; border-bottom: 1px solid var(--border); margin-bottom: 12px; line-height: 1.5; }
+    .speaker-foco strong { color: var(--muted); font-size: 9px; letter-spacing: 1px; text-transform: uppercase; display: block; margin-bottom: 3px; }
+
+    /* QUESTION ROW */
+    .q-row { display: flex; gap: 14px; padding: 10px 0; border-bottom: 1px solid var(--border); }
+    .q-row:last-child { border-bottom: none; }
+    .q-num { font-size: 18px; font-weight: 900; color: var(--accent); opacity: 0.25; min-width: 28px; line-height: 1.2; flex-shrink: 0; }
+    .q-body { flex: 1; }
+    .q-text { font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.5; margin-bottom: 4px; }
+    .q-vs { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 6px; }
+    .q-opt { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; border: 1px solid var(--border); color: var(--text); }
+    .q-opt:first-child { background: rgba(247,201,72,0.1); border-color: rgba(247,201,72,0.3); color: var(--accent); }
+    .q-opt:last-child { background: rgba(96,165,250,0.1); border-color: rgba(96,165,250,0.3); color: var(--link); }
+    .q-sep { font-size: 10px; color: var(--muted); font-weight: 700; }
+
+    /* ALEATORIO CARDS */
+    .al-card { display: flex; gap: 16px; background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; margin-bottom: 10px; transition: border-color 0.2s; }
+    .al-card:hover { border-color: var(--accent); }
+    .al-num { font-size: 24px; font-weight: 900; color: var(--accent); opacity: 0.3; min-width: 36px; line-height: 1; flex-shrink: 0; }
+    .al-body .al-title { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .al-body .al-sub { font-size: 12px; color: var(--muted); line-height: 1.5; margin-bottom: 8px; }
+    .al-vs { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .al-opt { font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; border: 1px solid var(--border); }
+    .al-opt:first-child { background: rgba(247,201,72,0.1); border-color: rgba(247,201,72,0.3); color: var(--accent); }
+    .al-opt:last-child { background: rgba(96,165,250,0.1); border-color: rgba(96,165,250,0.3); color: var(--link); }
+    .al-sep { font-size: 10px; color: var(--muted); font-weight: 700; }
+
+    /* CALLOUT */
+    .callout { display: flex; gap: 12px; border-radius: 8px; padding: 14px 18px; margin: 16px 0; }
+    .callout-y { background: rgba(247,201,72,0.07); border: 1px solid rgba(247,201,72,0.25); }
+    .callout-g { background: rgba(52,211,153,0.07); border: 1px solid rgba(52,211,153,0.25); }
+    .callout-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+    .callout-body { font-size: 13px; color: #c0c8d8; line-height: 1.6; }
+    .callout-y .callout-body strong { color: var(--accent); }
+    .callout-g .callout-body strong { color: var(--green); }
+
+    /* CHECKLIST */
+    .checklist { list-style: none; margin: 8px 0 16px; }
+    .checklist li { display: flex; gap: 9px; font-size: 13px; color: #c0c8d8; padding: 6px 0; border-bottom: 1px solid var(--border); line-height: 1.5; }
+    .checklist li:last-child { border-bottom: none; }
+    .checklist li::before { content: '✓'; color: var(--green); font-weight: 800; font-size: 11px; margin-top: 2px; flex-shrink: 0; }
+
+    /* OPEN ALL BTN */
+    .btn-small { font-size: 11px; font-weight: 700; padding: 5px 12px; border-radius: 6px; background: rgba(247,201,72,0.12); border: 1px solid rgba(247,201,72,0.3); color: var(--accent); cursor: pointer; transition: all 0.15s; display: inline-flex; align-items: center; gap: 5px; }
+    .btn-small:hover { background: rgba(247,201,72,0.2); }
+    .section-actions { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .section-label { font-size: 12px; color: var(--muted); }
+
+    /* HAMBURGER */
+    .hamburger { display: none; position: fixed; top: 12px; left: 12px; z-index: 200; background: var(--accent); color: #000; border: none; border-radius: 8px; width: 38px; height: 38px; font-size: 18px; cursor: pointer; align-items: center; justify-content: center; }
     @media (max-width: 768px) {
-      .hamburger { display: flex; align-items: center; justify-content: center; }
+      .hamburger { display: flex; }
       .sidebar { transform: translateX(-100%); transition: transform 0.25s; }
       .sidebar.open { transform: translateX(0); }
       .main { margin-left: 0; }
-      .page { padding: 24px 20px; }
+      .page { padding: 20px 16px; }
       .index-grid { grid-template-columns: 1fr; }
-      .grid-2 { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-<button class="hamburger" onclick="toggleSidebar()">☰</button>
+<button class="hamburger" id="hbg" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
 
-<!-- SIDEBAR -->
 <nav class="sidebar" id="sidebar">
   <div class="sidebar-logo">
     <span class="event-badge">SMART SUMMIT 2026</span>
     <h2>Guia de Produção de Conteúdo</h2>
-    <p>André Franco · Rio de Janeiro</p>
+    <p>André Franco · 12–13 Mar · Rio de Janeiro</p>
   </div>
-  <div class="sidebar-nav">
-    <div class="nav-section">Navegação</div>
+  <div style="padding: 8px 0 12px;">
+    <div class="nav-section">Guia</div>
     <a class="nav-item active" onclick="showPage('home')" href="#">
-      <span class="icon">🏠</span> Início / Índice
+      <span class="icon">🏠</span> Início
+    </a>
+    <a class="nav-item" onclick="showPage('direcao')" href="#">
+      <span class="icon">📋</span> Direção de Conteúdo
     </a>
 
-    <div class="nav-section" style="margin-top:8px">Sobre o Evento</div>
-    <a class="nav-item" onclick="showPage('evento')" href="#">
-      <span class="icon">📍</span> O Evento e a Estratégia
-    </a>
-    <a class="nav-item" onclick="showPage('equipe')" href="#">
-      <span class="icon">🎬</span> Equipe e Equipamentos
-    </a>
-
-    <div class="nav-section" style="margin-top:8px">Entrevistas</div>
+    <div class="nav-section" style="margin-top:6px">Isso ou Aquilo</div>
     <a class="nav-item" onclick="showPage('palestrantes')" href="#">
-      <span class="icon">🎤</span> Palestrantes Prioritários <span class="num">29</span>
+      <span class="icon">🎤</span> Por Palestrante <span class="nav-badge">29</span>
     </a>
-    <a class="nav-item" onclick="showPage('iao-palestrantes')" href="#">
-      <span class="icon">⚡</span> Isso ou Aquilo — Speakers
-    </a>
-    <a class="nav-item" onclick="showPage('iao-aleatorios')" href="#">
-      <span class="icon">🎲</span> Isso ou Aquilo — Aleatórios <span class="num">10</span>
-    </a>
-
-    <div class="nav-section" style="margin-top:8px">Produção</div>
-    <a class="nav-item" onclick="showPage('gravacao')" href="#">
-      <span class="icon">📹</span> Estratégia de Gravação
-    </a>
-    <a class="nav-item" onclick="showPage('posevento')" href="#">
-      <span class="icon">🔄</span> Pós-Evento e Edição
+    <a class="nav-item" onclick="showPage('aleatorios')" href="#">
+      <span class="icon">🎲</span> Para Aleatórios <span class="nav-badge">10</span>
     </a>
   </div>
 </nav>
 
-<!-- MAIN CONTENT -->
 <main class="main">
 
-  <!-- HOME / INDEX -->
-  <section class="page active" id="page-home">
-    <div class="page-header">
-      <div class="page-tag">Guia Completo</div>
-      <h1>Smart Summit 2026</h1>
-      <p class="page-subtitle">Tudo que você precisa para a cobertura de 12 e 13 de março no Rio de Janeiro. Navegue pelas seções usando o menu à esquerda ou clique nos cards abaixo.</p>
-    </div>
-
-    <div class="info-bar">
-      <div class="info-item">
-        <span class="info-label">Data</span>
-        <span class="info-value">12–13 Mar 2026</span>
-      </div>
-      <div class="info-item">
-        <span class="info-label">Local</span>
-        <span class="info-value">Rio de Janeiro</span>
-      </div>
-      <div class="info-item">
-        <span class="info-label">Palestrantes</span>
-        <span class="info-value">29 confirmados</span>
-      </div>
-      <div class="info-item">
-        <span class="info-label">Formatos</span>
-        <span class="info-value">YouTube + Reels</span>
-      </div>
-    </div>
-
-    <div class="index-grid">
-      <a class="index-card" onclick="showPage('evento')" href="#">
-        <span class="ic-icon">📍</span>
-        <div class="ic-num">Seção 1–2</div>
-        <div class="ic-title">O Evento e a Estratégia</div>
-        <div class="ic-desc">Objetivos, pilares de conteúdo e o que você vai produzir nos dois dias.</div>
-      </a>
-      <a class="index-card" onclick="showPage('equipe')" href="#">
-        <span class="ic-icon">🎬</span>
-        <div class="ic-num">Seção 2</div>
-        <div class="ic-title">Equipe e Equipamentos</div>
-        <div class="ic-desc">Funções de cada pessoa e checklist completo de equipamentos para levar.</div>
-      </a>
-      <a class="index-card" onclick="showPage('palestrantes')" href="#">
-        <span class="ic-icon">🎤</span>
-        <div class="ic-num">Seção 3</div>
-        <div class="ic-title">Palestrantes Prioritários</div>
-        <div class="ic-desc">29 palestrantes organizados por prioridade com pautas sugeridas para cada entrevista.</div>
-      </a>
-      <a class="index-card" onclick="showPage('iao-palestrantes')" href="#">
-        <span class="ic-icon">⚡</span>
-        <div class="ic-num">Seção 4</div>
-        <div class="ic-title">Isso ou Aquilo — Speakers</div>
-        <div class="ic-desc">Perguntas específicas do formato "Isso ou Aquilo" para os palestrantes do evento.</div>
-      </a>
-      <a class="index-card" onclick="showPage('iao-aleatorios')" href="#">
-        <span class="ic-icon">🎲</span>
-        <div class="ic-num">Seção 5</div>
-        <div class="ic-title">Isso ou Aquilo — Aleatórios</div>
-        <div class="ic-desc">10 perguntas genéricas para abordar qualquer participante do evento. Formato ping-pong.</div>
-      </a>
-      <a class="index-card" onclick="showPage('gravacao')" href="#">
-        <span class="ic-icon">📹</span>
-        <div class="ic-num">Seção 6</div>
-        <div class="ic-title">Estratégia de Gravação</div>
-        <div class="ic-desc">Agenda modelo para os dois dias com dicas técnicas de áudio, luz e ângulos.</div>
-      </a>
-      <a class="index-card" onclick="showPage('posevento')" href="#">
-        <span class="ic-icon">🔄</span>
-        <div class="ic-num">Seção 7</div>
-        <div class="ic-title">Pós-Evento e Edição</div>
-        <div class="ic-desc">Pipeline de edição, calendário de postagem e nomenclatura do projeto no Drive.</div>
-      </a>
-    </div>
-  </section>
-
-  <!-- EVENTO -->
-  <section class="page" id="page-evento">
-    <div class="page-header">
-      <div class="page-tag">Seção 1</div>
-      <h1>O Evento e a Estratégia</h1>
-      <p class="page-subtitle">Smart Summit 2026 — Rio de Janeiro, 12 e 13 de março</p>
-    </div>
-
-    <div class="info-bar">
-      <div class="info-item">
-        <span class="info-label">Data</span>
-        <span class="info-value">12–13 Mar 2026</span>
-      </div>
-      <div class="info-item">
-        <span class="info-label">Local</span>
-        <span class="info-value">Rio de Janeiro</span>
-      </div>
-      <div class="info-item">
-        <span class="info-label">Palestrantes</span>
-        <span class="info-value">29 confirmados</span>
-      </div>
-    </div>
-
-    <h2>Sobre o Evento</h2>
-    <p>Smart Summit 2026 é um dos maiores eventos de investimentos e finanças do Brasil, reunindo palestrantes do mercado cripto, financeiro tradicional, tecnologia e empreendedorismo. É a oportunidade perfeita para capturar conteúdo denso com especialistas de alto nível em um único ambiente.</p>
-
-    <h2>Objetivo da Cobertura</h2>
-    <p>Produzir conteúdo de alta qualidade para Instagram e YouTube, explorando as intersecções entre criptoativos e mercado financeiro tradicional. A audiência de André está justamente nessa interseção.</p>
-
-    <h2>Os 4 Pilares de Conteúdo</h2>
-    <div class="grid-2">
-      <div class="card">
-        <div class="card-title">🎥 Entrevistas longas</div>
-        <p>10–15 minutos com palestrantes prioritários. Material para YouTube. Gravar em 16:9 horizontal com dois ângulos.</p>
-      </div>
-      <div class="card">
-        <div class="card-title">⚡ Isso ou Aquilo</div>
-        <p>Formato rápido com palestrantes e participantes aleatórios. Material para Reels. Compilar respostas de 4–6 pessoas.</p>
-      </div>
-      <div class="card">
-        <div class="card-title">🏛️ B-Roll do evento</div>
-        <p>Ambiente, stands, bastidores, palestras. Serve de cobertura para edição dos vídeos longos e Reels.</p>
-      </div>
-      <div class="card">
-        <div class="card-title">💬 Compilados temáticos</div>
-        <p>"Qual sua aposta para 2026: Bitcoin ou S&P 500?" — múltiplas respostas editadas em sequência.</p>
-      </div>
-    </div>
-
-    <div class="callout">
-      <span class="callout-icon">💡</span>
-      <div class="callout-body">
-        <strong>Estratégia central:</strong> Fazer a pergunta "Isso ou Aquilo" com o máximo de pessoas possível. Um único dia de evento pode render 20+ clips de Reel com custo mínimo de produção.
-      </div>
-    </div>
-  </section>
-
-  <!-- EQUIPE -->
-  <section class="page" id="page-equipe">
-    <div class="page-header">
-      <div class="page-tag">Seção 2</div>
-      <h1>Equipe e Equipamentos</h1>
-      <p class="page-subtitle">Funções, responsabilidades e o que levar para os dois dias</p>
-    </div>
-
-    <h2>Funções</h2>
-    <div class="grid-2">
-      <div class="card">
-        <div class="card-title">André Franco — Host</div>
-        <ul class="checklist">
-          <li>Conduzir todas as entrevistas</li>
-          <li>Fazer as perguntas "Isso ou Aquilo"</li>
-          <li>Aparecer em câmera para análises</li>
-          <li>Interagir com palestrantes e público</li>
-          <li>Gravar resumo diário em vertical</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="card-title">Video Maker — Operação</div>
-        <ul class="checklist">
-          <li>Captar todas as imagens</li>
-          <li>Garantir áudio com microfones de lapela</li>
-          <li>Operar luzes portáteis nas entrevistas</li>
-          <li>Gravar segundo ângulo quando possível</li>
-          <li>Fazer backup diário do material</li>
-        </ul>
-      </div>
-    </div>
-
-    <h2>Checklist de Equipamentos</h2>
-    <div class="grid-2">
-      <div class="card">
-        <div class="card-title">📱 Câmera e Estabilização</div>
-        <ul class="checklist">
-          <li>2 iPhones com espaço suficiente</li>
-          <li>Tripés para entrevistas longas</li>
-          <li>Gimbal para movimento suave</li>
-          <li>Suporte de ombro para B-roll</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="card-title">🎙️ Áudio — CRÍTICO</div>
-        <ul class="checklist">
-          <li>2 microfones de lapela (sem fio preferível)</li>
-          <li>Adaptador Lightning/USB-C → P2</li>
-          <li>Testar antes de sair de casa</li>
-          <li>Backup: microfone de lapela com fio</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="card-title">💡 Iluminação</div>
-        <ul class="checklist">
-          <li>Ring light portátil ou painel LED</li>
-          <li>Posicionar de frente para janela quando possível</li>
-          <li>Testar temperatura de cor (5600K recomendado)</li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="card-title">🔋 Energia e Armazenamento</div>
-        <ul class="checklist">
-          <li>Power banks (mínimo 3, para 2 dias)</li>
-          <li>Cabo de carregamento para cada iPhone</li>
-          <li>Carregador rápido para a noite</li>
-          <li>Conferir espaço em disco antes de cada dia</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="callout">
-      <span class="callout-icon">⚠️</span>
-      <div class="callout-body">
-        <strong>Microfone é não-negociável.</strong> O Smart Summit é um evento barulhento. Sem lapela, as entrevistas ficam inutilizáveis. Levar sempre dois microfones, com backup.
-      </div>
-    </div>
-  </section>
-
-  <!-- PALESTRANTES -->
-  <section class="page" id="page-palestrantes">
-    <div class="page-header">
-      <div class="page-tag">Seção 3</div>
-      <h1>Palestrantes Prioritários</h1>
-      <p class="page-subtitle">29 palestrantes organizados por prioridade de entrevista</p>
-    </div>
-
-    <div class="callout">
-      <span class="callout-icon">🎯</span>
-      <div class="callout-body">
-        <strong>Estratégia:</strong> Foque no Nível 1 primeiro. São os que têm maior sobreposição com a audiência cripto/financeiro de André. Nível 2 e 3 são oportunistas — se der tempo e acesso, ótimo.
-      </div>
-    </div>
-
-    <h2>Nível 1 — Máxima Prioridade</h2>
-
-    <div class="card">
-      <span class="priority priority-1">★ PRIORIDADE MÁXIMA</span>
-      <div class="card-title">Alexandre Van de Sande — ENS Foundation</div>
-      <div class="card-sub">Ethereum · Identidade Descentralizada · UX em Web3</div>
-      <p><strong>Pautas:</strong> Futuro dos domínios descentralizados · ENS vs. DNS · O papel da ENS no ecossistema Ethereum · Identidade on-chain</p>
-      <div style="margin-top:8px"><span class="tag tag-orange">Ethereum</span><span class="tag tag-blue">Identidade Digital</span><span class="tag tag-green">Web3</span></div>
-    </div>
-
-    <div class="card">
-      <span class="priority priority-1">★ PRIORIDADE MÁXIMA</span>
-      <div class="card-title">Afonso Dalvi — Lumx (Smart Contracts)</div>
-      <div class="card-sub">Web2 → Web3 · Tokenização · Account Abstraction</div>
-      <p><strong>Pautas:</strong> Como empresas tradicionais migram para Web3 · Tokenização de ativos reais · Account Abstraction para simplificar cripto</p>
-      <div style="margin-top:8px"><span class="tag tag-orange">Smart Contracts</span><span class="tag tag-blue">Tokenização</span></div>
-    </div>
-
-    <div class="card">
-      <span class="priority priority-1">★ PRIORIDADE MÁXIMA</span>
-      <div class="card-title">Andre Portilho — BTG Pactual (Head Digital Assets)</div>
-      <div class="card-sub">Cripto no maior banco de investimentos do Brasil</div>
-      <p><strong>Pautas:</strong> Produtos de ativos digitais no BTG · Regulação vs. inovação · CBDC Drex muda o sistema financeiro?</p>
-      <div style="margin-top:8px"><span class="tag tag-orange">BTG</span><span class="tag tag-blue">Regulação</span><span class="tag tag-green">CBDC</span></div>
-    </div>
-
-    <div class="card">
-      <span class="priority priority-1">★ PRIORIDADE MÁXIMA</span>
-      <div class="card-title">Thiago Sarandy — Binance (Regulatório)</div>
-      <div class="card-sub">Regulação de criptoativos no Brasil · Stablecoins · Exchanges</div>
-      <p><strong>Pautas:</strong> O que mudou na regulação cripto em 2026 · Stablecoins coexistindo com o real digital · O que exchanges precisam cumprir</p>
-      <div style="margin-top:8px"><span class="tag tag-orange">Binance</span><span class="tag tag-red">Regulação</span></div>
-    </div>
-
-    <h2>Nível 2 — Alta Prioridade</h2>
-
-    <div class="card">
-      <span class="priority priority-2">▲ ALTA PRIORIDADE</span>
-      <div class="card-title">Alex Carvalho — Trader CNPI-T</div>
-      <div class="card-sub">Day Trade · Análise Técnica · Gestão de Risco</div>
-      <p><strong>Pautas:</strong> Estratégias de trading em cripto para 2026 · Análise de mercado · Quando o mercado é irracional, o que fazer?</p>
-    </div>
-
-    <div class="card">
-      <span class="priority priority-2">▲ ALTA PRIORIDADE</span>
-      <div class="card-title">Daniel Maeda — B3 (Jurídico)</div>
-      <div class="card-sub">Regulação de mercado de capitais · ETFs cripto · Inovação</div>
-      <p><strong>Pautas:</strong> ETFs de cripto na B3: quando chegam mais? · Ativos digitais no mercado de capitais</p>
-    </div>
-
-    <div class="card">
-      <span class="priority priority-2">▲ ALTA PRIORIDADE</span>
-      <div class="card-title">Felipe Cabral — Santander (Crypto Assets)</div>
-      <div class="card-sub">Banco tradicional + cripto · Tokenização bancária</div>
-      <p><strong>Pautas:</strong> Como o Santander está tokenizando ativos · Banco tradicional: concorrência ou aliança com cripto?</p>
-    </div>
-
-    <div class="card">
-      <span class="priority priority-2">▲ ALTA PRIORIDADE</span>
-      <div class="card-title">Jorge Borges — Fireblocks (Head LATAM)</div>
-      <div class="card-sub">Custódia institucional de ativos digitais na América Latina</div>
-    </div>
-
-    <div class="card">
-      <span class="priority priority-2">▲ ALTA PRIORIDADE</span>
-      <div class="card-title">Alec Howard — Ruvo (CEO)</div>
-      <div class="card-sub">Fintech · Pagamentos transfronteiriços · Tokenização</div>
-    </div>
-
-    <div class="card">
-      <span class="priority priority-2">▲ ALTA PRIORIDADE</span>
-      <div class="card-title">Marcos Viriato — Parfin (CEO)</div>
-      <div class="card-sub">Infraestrutura de ativos digitais para bancos · DeFi institucional</div>
-    </div>
-
-    <h2>Nível 3 — Complementar (se houver acesso)</h2>
-
-    <div class="card">
-      <span class="priority priority-3">— COMPLEMENTAR</span>
-      <div class="card-title">Thiago Godoy — Papai Financeiro</div>
-      <p>Educação financeira para família · Psicologia do dinheiro</p>
-    </div>
-    <div class="card">
-      <span class="priority priority-3">— COMPLEMENTAR</span>
-      <div class="card-title">Luis Justo — CEO Rock in Rio / The Town / Lollapalooza</div>
-      <p>Liderança e gestão de grandes eventos · Inovação estratégica</p>
-    </div>
-    <div class="card">
-      <span class="priority priority-3">— COMPLEMENTAR</span>
-      <div class="card-title">Carlos Ferreirinha — Mercado de Luxo</div>
-      <p>Luxo como ativo alternativo · Gestão estratégica premium</p>
-    </div>
-    <div class="card">
-      <span class="priority priority-3">— COMPLEMENTAR</span>
-      <div class="card-title">Caio Coppolla — Comentarista Político</div>
-      <p>Análise de cenários políticos e impacto no mercado financeiro</p>
-    </div>
-    <div class="card">
-      <span class="priority priority-3">— COMPLEMENTAR</span>
-      <div class="card-title">Ana Westfal — Uniswap (Growth Lead LatAm)</div>
-      <p>Crescimento de comunidades Web3 · Mercados emergentes</p>
-    </div>
-  </section>
-
-  <!-- ISSO OU AQUILO PALESTRANTES -->
-  <section class="page" id="page-iao-palestrantes">
-    <div class="page-header">
-      <div class="page-tag">Seção 4</div>
-      <h1>Isso ou Aquilo — Speakers</h1>
-      <p class="page-subtitle">Perguntas rápidas para palestrantes. Gravar em 9:16 vertical · Máx 20s por resposta</p>
-    </div>
-
-    <div class="callout">
-      <span class="callout-icon">📱</span>
-      <div class="callout-body">
-        <strong>Como usar:</strong> Escolha 7–10 perguntas por palestrante (misturando universais + específicas do perfil). Compilar em Reel com cortes rápidos. Adicionar música animada e legenda com a pergunta na tela.
-      </div>
-    </div>
-
-    <h2>Perguntas Universais (qualquer palestrante)</h2>
-
-    <div class="q-card">
-      <div class="q-num">01</div>
-      <div class="q-content">
-        <div class="q-title">Bitcoin ou Ethereum?</div>
-        <div class="q-vs"><span class="q-option">Bitcoin</span><span class="q-vs-sep">vs</span><span class="q-option">Ethereum</span></div>
-      </div>
-    </div>
-    <div class="q-card">
-      <div class="q-num">02</div>
-      <div class="q-content">
-        <div class="q-title">DeFi ou CeFi?</div>
-        <div class="q-vs"><span class="q-option">DeFi</span><span class="q-vs-sep">vs</span><span class="q-option">CeFi</span></div>
-      </div>
-    </div>
-    <div class="q-card">
-      <div class="q-num">03</div>
-      <div class="q-content">
-        <div class="q-title">Bull Run 2026 — vai acontecer ou ainda lateraliza?</div>
-        <div class="q-vs"><span class="q-option">Bull Run 2026</span><span class="q-vs-sep">vs</span><span class="q-option">Lateralização</span></div>
-      </div>
-    </div>
-    <div class="q-card">
-      <div class="q-num">04</div>
-      <div class="q-content">
-        <div class="q-title">Regulação — ajuda ou atrapalha o mercado cripto?</div>
-        <div class="q-vs"><span class="q-option">Ajuda</span><span class="q-vs-sep">vs</span><span class="q-option">Atrapalha</span></div>
-      </div>
-    </div>
-    <div class="q-card">
-      <div class="q-num">05</div>
-      <div class="q-content">
-        <div class="q-title">Cripto como reserva de valor ou como especulação?</div>
-        <div class="q-vs"><span class="q-option">Reserva de Valor</span><span class="q-vs-sep">vs</span><span class="q-option">Especulação</span></div>
-      </div>
-    </div>
-    <div class="q-card">
-      <div class="q-num">06</div>
-      <div class="q-content">
-        <div class="q-title">Web3 em 5 anos — mainstream ou ainda nicho?</div>
-        <div class="q-vs"><span class="q-option">Mainstream</span><span class="q-vs-sep">vs</span><span class="q-option">Ainda nicho</span></div>
-      </div>
-    </div>
-    <div class="q-card">
-      <div class="q-num">07</div>
-      <div class="q-content">
-        <div class="q-title">Altcoins ou só Bitcoin?</div>
-        <div class="q-vs"><span class="q-option">Altcoins</span><span class="q-vs-sep">vs</span><span class="q-option">Só Bitcoin</span></div>
-      </div>
-    </div>
-    <div class="q-card">
-      <div class="q-num">08</div>
-      <div class="q-content">
-        <div class="q-title">Hardware wallet ou exchange custodial?</div>
-        <div class="q-vs"><span class="q-option">Hardware Wallet</span><span class="q-vs-sep">vs</span><span class="q-option">Exchange Custodial</span></div>
-      </div>
-    </div>
-    <div class="q-card">
-      <div class="q-num">09</div>
-      <div class="q-content">
-        <div class="q-title">Stablecoin em dólar ou stablecoin em real?</div>
-        <div class="q-vs"><span class="q-option">Stablecoin USD</span><span class="q-vs-sep">vs</span><span class="q-option">Stablecoin BRL</span></div>
-      </div>
-    </div>
-    <div class="q-card">
-      <div class="q-num">10</div>
-      <div class="q-content">
-        <div class="q-title">Tokenização muda mais bancos ou mercado de capitais?</div>
-        <div class="q-vs"><span class="q-option">Bancos</span><span class="q-vs-sep">vs</span><span class="q-option">Mercado de Capitais</span></div>
-      </div>
-    </div>
-
-    <h2>Para Bancos e Financeiras</h2>
-
-    <div class="q-card">
-      <div class="q-num">11</div>
-      <div class="q-content">
-        <div class="q-title">CBDC Drex — vai funcionar ou será esquecido?</div>
-        <div class="q-vs"><span class="q-option">Vai funcionar</span><span class="q-vs-sep">vs</span><span class="q-option">Será esquecido</span></div>
-      </div>
-    </div>
-    <div class="q-card">
-      <div class="q-num">12</div>
-      <div class="q-content">
-        <div class="q-title">Banco tradicional sobrevive à tokenização?</div>
-        <div class="q-vs"><span class="q-option">Sobrevive</span><span class="q-vs-sep">vs</span><span class="q-option">Não sobrevive</span></div>
-      </div>
-    </div>
-
-    <h2>Para Traders e Analistas</h2>
-
-    <div class="q-card">
-      <div class="q-num">13</div>
-      <div class="q-content">
-        <div class="q-title">Stop loss ou HODL na queda?</div>
-        <div class="q-vs"><span class="q-option">Stop Loss</span><span class="q-vs-sep">vs</span><span class="q-option">HODL</span></div>
-      </div>
-    </div>
-    <div class="q-card">
-      <div class="q-num">14</div>
-      <div class="q-content">
-        <div class="q-title">Alavancagem — ferramenta ou armadilha?</div>
-        <div class="q-vs"><span class="q-option">Ferramenta</span><span class="q-vs-sep">vs</span><span class="q-option">Armadilha</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ISSO OU AQUILO ALEATÓRIOS -->
-  <section class="page" id="page-iao-aleatorios">
-    <div class="page-header">
-      <div class="page-tag">Seção 5 — NOVO</div>
-      <h1>Isso ou Aquilo — Participantes Aleatórios</h1>
-      <p class="page-subtitle">10 perguntas genéricas para abordar qualquer pessoa do evento. Não precisa ser especialista.</p>
-    </div>
-
-    <div class="callout">
-      <span class="callout-icon">🎲</span>
-      <div class="callout-body">
-        <strong>Formato ping-pong:</strong> Compilar 4–6 pessoas respondendo a mesma pergunta. Ideal para gravar nos coffee breaks e intervalos, abordando participantes no corredor ou nos stands.
-      </div>
-    </div>
-
-    <div class="callout" style="background:rgba(52,211,153,0.07); border-color:rgba(52,211,153,0.25)">
-      <span class="callout-icon">📹</span>
-      <div class="callout-body" style="color:#c0c8d8">
-        <strong style="color:var(--green)">Como gravar:</strong> Vertical 9:16 com o evento visível ao fundo · Pergunta aparece como texto na tela antes da resposta · Cada pessoa responde em no máximo 15 segundos · Compilar com cortes de 2–3 segundos por pessoa · Adicionar música animada no edit.
-      </div>
-    </div>
-
-    <h2>As 10 Perguntas</h2>
-
-    <div class="q-card">
-      <div class="q-num">01</div>
-      <div class="q-content">
-        <div class="q-title">Bitcoin ou Ouro?</div>
-        <div class="q-sub">Como reserva de valor para o longo prazo — qual você confia mais?</div>
-        <div class="q-vs"><span class="q-option">Bitcoin</span><span class="q-vs-sep">vs</span><span class="q-option">Ouro</span></div>
-      </div>
-    </div>
-
-    <div class="q-card">
-      <div class="q-num">02</div>
-      <div class="q-content">
-        <div class="q-title">Buy and Hold ou Day Trade?</div>
-        <div class="q-sub">Qual perfil de investidor você se identifica mais?</div>
-        <div class="q-vs"><span class="q-option">Buy &amp; Hold</span><span class="q-vs-sep">vs</span><span class="q-option">Day Trade</span></div>
-      </div>
-    </div>
-
-    <div class="q-card">
-      <div class="q-num">03</div>
-      <div class="q-content">
-        <div class="q-title">Criptomoeda ou Ações?</div>
-        <div class="q-sub">Se tivesse que escolher só um mercado para investir em 2026, qual seria?</div>
-        <div class="q-vs"><span class="q-option">Criptomoeda</span><span class="q-vs-sep">vs</span><span class="q-option">Ações</span></div>
-      </div>
-    </div>
-
-    <div class="q-card">
-      <div class="q-num">04</div>
-      <div class="q-content">
-        <div class="q-title">Banco digital ou Banco tradicional?</div>
-        <div class="q-sub">Para o seu dia a dia financeiro, qual você prefere?</div>
-        <div class="q-vs"><span class="q-option">Banco Digital</span><span class="q-vs-sep">vs</span><span class="q-option">Banco Tradicional</span></div>
-      </div>
-    </div>
-
-    <div class="q-card">
-      <div class="q-num">05</div>
-      <div class="q-content">
-        <div class="q-title">Risco alto com potencial alto, ou segurança com retorno menor?</div>
-        <div class="q-sub">Qual a sua filosofia de investimento?</div>
-        <div class="q-vs"><span class="q-option">Risco Alto</span><span class="q-vs-sep">vs</span><span class="q-option">Segurança</span></div>
-      </div>
-    </div>
-
-    <div class="q-card">
-      <div class="q-num">06</div>
-      <div class="q-content">
-        <div class="q-title">Análise técnica ou Análise fundamentalista?</div>
-        <div class="q-sub">Na hora de decidir um investimento, o que você consulta mais?</div>
-        <div class="q-vs"><span class="q-option">Análise Técnica</span><span class="q-vs-sep">vs</span><span class="q-option">Fundamentalista</span></div>
-      </div>
-    </div>
-
-    <div class="q-card">
-      <div class="q-num">07</div>
-      <div class="q-content">
-        <div class="q-title">Curto prazo ou Longo prazo?</div>
-        <div class="q-sub">Você pensa nos seus investimentos em meses ou em anos?</div>
-        <div class="q-vs"><span class="q-option">Curto Prazo</span><span class="q-vs-sep">vs</span><span class="q-option">Longo Prazo</span></div>
-      </div>
-    </div>
-
-    <div class="q-card">
-      <div class="q-num">08</div>
-      <div class="q-content">
-        <div class="q-title">Empreender ou Investir?</div>
-        <div class="q-sub">Se tivesse R$100 mil sobrando agora, abria um negócio ou colocava no mercado?</div>
-        <div class="q-vs"><span class="q-option">Empreender</span><span class="q-vs-sep">vs</span><span class="q-option">Investir</span></div>
-      </div>
-    </div>
-
-    <div class="q-card">
-      <div class="q-num">09</div>
-      <div class="q-content">
-        <div class="q-title">Dólar ou Bitcoin para proteção do real?</div>
-        <div class="q-sub">Qual você escolheria para guardar valor fora do real?</div>
-        <div class="q-vs"><span class="q-option">Dólar</span><span class="q-vs-sep">vs</span><span class="q-option">Bitcoin</span></div>
-      </div>
-    </div>
-
-    <div class="q-card">
-      <div class="q-num">10</div>
-      <div class="q-content">
-        <div class="q-title">Diversificar muito ou Concentrar em poucos ativos?</div>
-        <div class="q-sub">Muitos ovos em muitas cestas, ou apostar forte em poucas escolhas?</div>
-        <div class="q-vs"><span class="q-option">Diversificar</span><span class="q-vs-sep">vs</span><span class="q-option">Concentrar</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GRAVAÇÃO -->
-  <section class="page" id="page-gravacao">
-    <div class="page-header">
-      <div class="page-tag">Seção 6</div>
-      <h1>Estratégia de Gravação</h1>
-      <p class="page-subtitle">Agenda modelo para os dois dias + dicas técnicas essenciais</p>
-    </div>
-
-    <h2>Agenda Modelo (aplicar nos dois dias)</h2>
-
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-dot">
-          <div class="timeline-circle">1</div>
-          <div class="timeline-line"></div>
-        </div>
-        <div class="timeline-body">
-          <div class="timeline-title">☀️ Manhã — antes das palestras</div>
-          <ul class="checklist">
-            <li>Chegar cedo para gravar B-roll do local vazio (sem pessoas)</li>
-            <li>Configurar equipamento e testar áudio com o lapela</li>
-            <li>Identificar quais palestrantes prioritários estão no evento naquele dia</li>
-            <li>Verificar agenda do dia para saber onde estarão os palestrantes</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot">
-          <div class="timeline-circle">2</div>
-          <div class="timeline-line"></div>
-        </div>
-        <div class="timeline-body">
-          <div class="timeline-title">🎤 Durante o evento</div>
-          <ul class="checklist">
-            <li>Gravar palestras discretamente (ângulo lateral, não atrapalhar)</li>
-            <li>Buscar momentos de corredor para entrevistas rápidas</li>
-            <li>Gravar reações do público em momentos de impacto</li>
-            <li>Anotar timecodes dos melhores momentos das palestras</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot">
-          <div class="timeline-circle">3</div>
-          <div class="timeline-line"></div>
-        </div>
-        <div class="timeline-body">
-          <div class="timeline-title">☕ Intervalos e Coffee Break — momento IDEAL</div>
-          <ul class="checklist">
-            <li>Abordar palestrantes em tom casual antes/depois das palestras</li>
-            <li>"Isso ou Aquilo" com participantes aleatórios nos corredores</li>
-            <li>Gravar interações espontâneas entre André e outros participantes</li>
-            <li>Ideal para compilados de pergunta única com múltiplas respostas</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot">
-          <div class="timeline-circle">4</div>
-        </div>
-        <div class="timeline-body">
-          <div class="timeline-title">🌙 Final do dia</div>
-          <ul class="checklist">
-            <li>Resumo rápido de André (câmera na mão, vertical, 60s)</li>
-            <li>Identificar os 3 melhores clips do dia — candidatos a Reel imediato</li>
-            <li>Fazer backup de todo o material para nuvem/HD</li>
-            <li>Carregar todos os equipamentos para o dia seguinte</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <h2>Dicas Técnicas</h2>
-
-    <div class="grid-2">
-      <div class="card">
-        <div class="card-title">🎙️ Áudio</div>
-        <p>Microfone de lapela SEMPRE em entrevistas. O evento é barulhento — sem lapela, o áudio é inutilizável. Testar antes de cada entrevista.</p>
-      </div>
-      <div class="card">
-        <div class="card-title">💡 Iluminação</div>
-        <p>Posicionar entrevistado de frente para janela quando possível. Se não houver luz natural, usar o painel LED portátil a 45° do rosto.</p>
-      </div>
-      <div class="card">
-        <div class="card-title">📐 Ângulos</div>
-        <p>Entrevistas longas: segundo iPhone em tripé para ângulo diferente. Isso dobra o material de corte e melhora muito a edição final.</p>
-      </div>
-      <div class="card">
-        <div class="card-title">🖼️ Enquadramento</div>
-        <p>Entrevistas: busto em frente. "Isso ou Aquilo": câmera mais baixa, evento visível ao fundo. B-roll: movimentos lentos e suaves.</p>
-      </div>
-    </div>
-
-    <div class="callout">
-      <span class="callout-icon">🏆</span>
-      <div class="callout-body">
-        <strong>A regra de ouro:</strong> Um Reel de "Isso ou Aquilo" com 5 pessoas respondendo pode ser gravado em 10 minutos num coffee break. São 5 respostas de 15s cada = 1 Reel completo. Priorize isso sempre que tiver um intervalo.
-      </div>
-    </div>
-  </section>
-
-  <!-- PÓS-EVENTO -->
-  <section class="page" id="page-posevento">
-    <div class="page-header">
-      <div class="page-tag">Seção 7</div>
-      <h1>Pós-Evento e Edição</h1>
-      <p class="page-subtitle">Pipeline de edição, calendário de postagem e como organizar o material</p>
-    </div>
-
-    <h2>Priorização de Edição</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="timeline-dot">
-          <div class="timeline-circle">1</div>
-          <div class="timeline-line"></div>
-        </div>
-        <div class="timeline-body">
-          <div class="timeline-title">Reels e Stories — URGENTE</div>
-          <p>Aproveitar o hype do evento enquanto ele está acontecendo. Publicar no próprio dia 13 ou no dia 14 no máximo.</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot">
-          <div class="timeline-circle">2</div>
-          <div class="timeline-line"></div>
-        </div>
-        <div class="timeline-body">
-          <div class="timeline-title">Compilados "Isso ou Aquilo"</div>
-          <p>Edição rápida: cortar respostas, adicionar pergunta na tela, música e legenda. Publicar nos dias 14–15.</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot">
-          <div class="timeline-circle">3</div>
-          <div class="timeline-line"></div>
-        </div>
-        <div class="timeline-body">
-          <div class="timeline-title">Entrevistas completas para YouTube</div>
-          <p>Edição mais cuidadosa: cortes, B-roll, lower thirds, thumbnail. Publicar nos dias 16–18.</p>
-        </div>
-      </div>
-      <div class="timeline-item">
-        <div class="timeline-dot">
-          <div class="timeline-circle">4</div>
-        </div>
-        <div class="timeline-body">
-          <div class="timeline-title">Vídeo resumo / destaques do evento</div>
-          <p>Compilado geral dos melhores momentos. Semana 2 após o evento.</p>
-        </div>
-      </div>
-    </div>
-
-    <h2>Pipeline de Edição (automatizado)</h2>
-    <p>Após o evento, usar o comando <strong>/visita-editor</strong> com a pasta Drive do evento para rodar o pipeline completo:</p>
-
-    <div class="pipeline">
-      <div class="pipe-step">
-        <div class="ps-icon">📁</div>
-        <div class="ps-label">Organizar Drive</div>
-        <div class="ps-agent">visita-organizador</div>
-      </div>
-      <div class="pipe-arrow">→</div>
-      <div class="pipe-step">
-        <div class="ps-icon">🎙️</div>
-        <div class="ps-label">Transcrever</div>
-        <div class="ps-agent">visita-transcritor</div>
-      </div>
-      <div class="pipe-arrow">→</div>
-      <div class="pipe-step">
-        <div class="ps-icon">🔍</div>
-        <div class="ps-label">Analisar</div>
-        <div class="ps-agent">visita-analista</div>
-      </div>
-      <div class="pipe-arrow">→</div>
-      <div class="pipe-step">
-        <div class="ps-icon">📺</div>
-        <div class="ps-label">Roteiro YT</div>
-        <div class="ps-agent">editor-youtube</div>
-      </div>
-      <div class="pipe-arrow">→</div>
-      <div class="pipe-step">
-        <div class="ps-icon">📱</div>
-        <div class="ps-label">Roteiro Reels</div>
-        <div class="ps-agent">editor-instagram</div>
-      </div>
-    </div>
-
-    <h2>Calendário de Postagem</h2>
-    <div class="grid-2">
-      <div class="step-box">
-        <span class="step-num">Dia 13</span>
-        <div class="step-title" style="margin-top:8px">Durante o evento</div>
-        <p>Stories ao vivo</p>
-        <p>1 Reel rápido de bastidores</p>
-      </div>
-      <div class="step-box">
-        <span class="step-num">Dias 14–15</span>
-        <div class="step-title" style="margin-top:8px">Pós-evento imediato</div>
-        <p>2–3 Reels "Isso ou Aquilo"</p>
-        <p>Stories com destaques</p>
-      </div>
-      <div class="step-box">
-        <span class="step-num">Dias 16–18</span>
-        <div class="step-title" style="margin-top:8px">Conteúdo longo</div>
-        <p>Entrevistas no YouTube</p>
-        <p>Reels adicionais</p>
-      </div>
-      <div class="step-box">
-        <span class="step-num">Semana 2</span>
-        <div class="step-title" style="margin-top:8px">Síntese</div>
-        <p>Vídeo resumo do evento</p>
-        <p>Análises e reflexões</p>
-      </div>
-    </div>
-
-    <h2>Nomenclatura do Projeto</h2>
-    <div class="card">
-      <div class="card-title">Projeto: evento_smartsummit_202503</div>
-      <p>Pasta Drive: <span style="color:var(--accent);font-family:monospace">📁 evento_smartsummit_202503</span></p>
-      <ul class="checklist" style="margin-top:12px">
-        <li>📹 YOUTUBE - HORIZONTAL → 01 Clips Principais / 02 Complementares / 03 B-Roll</li>
-        <li>📱 INSTAGRAM - VERTICAL → 01 Clips Principais / 02 B-Roll</li>
-        <li>❓ INDEFINIDO — Verificar Manualmente</li>
-        <li>📄 Documentos de Edição (roteiros Google Docs)</li>
+<!-- HOME -->
+<section class="page active" id="page-home">
+  <div class="page-header">
+    <div class="page-tag">Smart Summit 2026</div>
+    <h1>Guia de Produção de Conteúdo</h1>
+    <p class="page-sub">André Franco · Rio de Janeiro, 12 e 13 de março de 2026</p>
+  </div>
+  <div class="info-bar">
+    <div class="info-item"><span class="info-label">Data</span><span class="info-value">12–13 Mar 2026</span></div>
+    <div class="info-item"><span class="info-label">Local</span><span class="info-value">Rio de Janeiro</span></div>
+    <div class="info-item"><span class="info-label">Palestrantes</span><span class="info-value">29 confirmados</span></div>
+    <div class="info-item"><span class="info-label">Perguntas Isso/Aquilo</span><span class="info-value">203 específicas + 10 gerais</span></div>
+  </div>
+  <p>Clique em qualquer seção abaixo para acessar o conteúdo:</p>
+  <div class="index-grid">
+    <a class="index-card" onclick="showPage('direcao')" href="#">
+      <span class="ic-icon">📋</span>
+      <div class="ic-num">Documento 1</div>
+      <div class="ic-title">Direção de Conteúdo</div>
+      <div class="ic-desc">Estratégia de gravação, agenda modelo para os 2 dias, pilares e ideias de conteúdo.</div>
+    </a>
+    <a class="index-card" onclick="showPage('palestrantes')" href="#">
+      <span class="ic-icon">🎤</span>
+      <div class="ic-num">Documento 2 — 29 Speakers</div>
+      <div class="ic-title">Isso ou Aquilo por Palestrante</div>
+      <div class="ic-desc">7 perguntas específicas para cada um dos 29 palestrantes do evento.</div>
+    </a>
+    <a class="index-card" onclick="showPage('aleatorios')" href="#">
+      <span class="ic-icon">🎲</span>
+      <div class="ic-num">Seção Extra — 10 Perguntas</div>
+      <div class="ic-title">Isso ou Aquilo para Aleatórios</div>
+      <div class="ic-desc">Perguntas genéricas para abordar qualquer participante. Formato ping-pong para Reels.</div>
+    </a>
+  </div>
+</section>
+
+<!-- DIREÇÃO DE CONTEÚDO -->
+<section class="page" id="page-direcao">
+  <div class="page-header">
+    <div class="page-tag">Documento 1 — Agenda e Estratégia</div>
+    <h1>Direção de Conteúdo</h1>
+    <p class="page-sub">Estratégia de gravação para os dias 12 e 13 de março no Rio de Janeiro</p>
+  </div>
+
+  <h2>Estratégia de Conteúdo</h2>
+  <p>A cobertura será dividida em três pilares com formatos específicos para cada plataforma:</p>
+  <table class="data-table">
+    <thead><tr><th>Pilar</th><th>Formatos</th><th>Plataforma</th><th>Objetivo</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Cobertura em Tempo Real</strong></td><td>Instagram Stories (vídeos curtos, fotos, enquetes, Q&amp;A)</td><td>Instagram</td><td>Manter audiência engajada durante o evento</td></tr>
+      <tr><td><strong>Pílulas de Conhecimento</strong></td><td>Reels / YouTube Shorts (1–3 min)</td><td>Instagram, YouTube</td><td>Conteúdo rápido com alto potencial de viralização</td></tr>
+      <tr><td><strong>Conteúdo Aprofundado</strong></td><td>Entrevistas e vídeos educativos (5–15 min)</td><td>YouTube</td><td>Análises densas e discussões com especialistas</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Funções da Equipe</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;">
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px;">
+      <h3 style="margin-top:0">André Franco — Host</h3>
+      <ul class="checklist">
+        <li>Conduzir entrevistas e apresentar conteúdos</li>
+        <li>Fazer análises e interagir com o público</li>
+        <li>Realizar as perguntas "Isso ou Aquilo"</li>
+        <li>Gravar resumos diários para Stories</li>
       </ul>
     </div>
-  </section>
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:16px;">
+      <h3 style="margin-top:0">Video Maker — Operação</h3>
+      <ul class="checklist">
+        <li>Captar todas as imagens (entrevistas, palestras, B-roll)</li>
+        <li>Garantir qualidade de áudio com microfones de lapela</li>
+        <li>Operar luzes portáteis nas entrevistas</li>
+        <li>Gravar segundo ângulo quando possível</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Preparação Pré-Evento</h2>
+  <ul class="checklist">
+    <li><strong>Contato com Palestrantes:</strong> Agendar entrevistas curtas (10–15 min) com os mais relevantes</li>
+    <li><strong>Roteiro de Perguntas:</strong> Preparar base de perguntas sobre futuro dos investimentos, convergência cripto/tradicional e tendências 2026</li>
+    <li><strong>Checklist de Equipamentos:</strong> iPhones, microfones de lapela, luzes portáteis, power banks, tripés</li>
+  </ul>
+
+  <h2>Agenda Modelo — Aplicar nos Dois Dias</h2>
+  <table class="agenda-table">
+    <thead><tr><th>Horário</th><th>Atividade</th><th>Video Maker</th><th>André</th></tr></thead>
+    <tbody>
+      <tr><td>09:30–10:30</td><td>Chegada e Credenciamento</td><td>B-roll da chegada, fachada e movimentação</td><td>Stories de "chegamos", mostrando expectativa</td></tr>
+      <tr><td>10:30–12:30</td><td>Palestra de Abertura</td><td>Gravar trechos da palestra e reação do público</td><td>Assistir, fazer anotações para Reel de "Key Takeaways"</td></tr>
+      <tr><td>12:30–14:00</td><td>Almoço e Networking</td><td>Imagens de networking (com autorização)</td><td>Almoçar com contatos estratégicos, buscar entrevistas informais</td></tr>
+      <tr><td>14:00–16:00</td><td>Bloco de Entrevistas 1</td><td>Setup em local reservado (área de podcast, lounge)</td><td>Conduzir 2–3 entrevistas agendadas</td></tr>
+      <tr><td>16:00–18:00</td><td>Palestras e Painéis</td><td>Gravar trechos com foco em cripto/mercado</td><td>Assistir, gravar Stories com insights ao vivo</td></tr>
+      <tr><td>18:00–19:30</td><td>Bloco de Entrevistas 2</td><td>Gravar últimas entrevistas ou takes para vídeos educativos</td><td>Conduzir mais 1–2 entrevistas ou gravar pílulas de conteúdo</td></tr>
+      <tr><td>19:30–20:00</td><td>Encerramento do Dia</td><td>Imagens do encerramento, clima de final de dia</td><td>Gravar resumo para Stories com melhores momentos</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Ideias de Conteúdo para Reels/Shorts</h2>
+  <ul class="checklist">
+    <li><strong>"3 Lições do Smart Summit para o Investidor de Cripto"</strong> — resumo rápido e direto</li>
+    <li><strong>"O Fim dos Bancos? O que os Especialistas Dizem"</strong> — compilado de opiniões</li>
+    <li><strong>"Investi R$1000 em Cripto vs. Ações: O que o Evento me Ensinou"</strong> — conteúdo educativo com gancho forte</li>
+    <li><strong>Entrevistas Ping-Pong</strong> — uma pergunta rápida para vários participantes. Ex: "Qual sua aposta para 2026: Bitcoin ou S&amp;P 500?"</li>
+  </ul>
+
+  <h2>Dicas de Gravação com iPhone</h2>
+  <ul class="checklist">
+    <li><strong>Áudio é Rei:</strong> Microfones de lapela sempre — ambiente barulhento inviabiliza o áudio sem lapela</li>
+    <li><strong>Estabilização:</strong> Tripés para entrevistas, gimbals para movimentos de B-roll suaves</li>
+    <li><strong>Iluminação:</strong> Luzes portáteis essenciais para destacar entrevistados com aparência profissional</li>
+    <li><strong>Dois Ângulos:</strong> Segundo iPhone em tripé para entrevistas — enriquece muito a edição</li>
+  </ul>
+</section>
+
+<!-- PALESTRANTES -->
+<section class="page" id="page-palestrantes">
+  <div class="page-header">
+    <div class="page-tag">Documento 2 — 29 Palestrantes</div>
+    <h1>Isso ou Aquilo — Por Palestrante</h1>
+    <p class="page-sub">7 perguntas personalizadas para cada palestrante. Clique no nome para expandir.</p>
+  </div>
+
+  <div class="callout callout-y">
+    <span class="callout-icon">📱</span>
+    <div class="callout-body">
+      <strong>Como usar:</strong> Gravar em 9:16 vertical. Máx 20s por resposta. Compilar em Reel com cortes rápidos + música + legenda com a pergunta na tela.
+    </div>
+  </div>
+
+  <div class="section-actions">
+    <span class="section-label">29 palestrantes —</span>
+    <button class="btn-small" onclick="toggleAll(true)">▼ Expandir todos</button>
+    <button class="btn-small" onclick="toggleAll(false)">▲ Recolher todos</button>
+  </div>
+
+  <div class="speaker-nav" id="speaker-nav"></div>
+  <div id="speakers-container"></div>
+</section>
+
+<!-- ALEATÓRIOS -->
+<section class="page" id="page-aleatorios">
+  <div class="page-header">
+    <div class="page-tag">Seção Extra — Participantes Aleatórios</div>
+    <h1>Isso ou Aquilo — Para Aleatórios</h1>
+    <p class="page-sub">10 perguntas genéricas para abordar qualquer participante do evento</p>
+  </div>
+
+  <div class="callout callout-y">
+    <span class="callout-icon">🎲</span>
+    <div class="callout-body">
+      <strong>Formato ping-pong:</strong> Compilar 4–6 pessoas respondendo a mesma pergunta. Ideal para gravar nos coffee breaks e intervalos, abordando participantes nos corredores ou nos stands.
+    </div>
+  </div>
+  <div class="callout callout-g">
+    <span class="callout-icon">📹</span>
+    <div class="callout-body">
+      <strong style="color:var(--green)">Como gravar:</strong> Vertical 9:16 com evento ao fundo · Pergunta como texto na tela antes da resposta · Cada pessoa responde em no máximo 15s · Compilar com cortes de 2–3s por pessoa · Música animada no edit.
+    </div>
+  </div>
+
+  <h2>As 10 Perguntas</h2>
+  <div id="aleatorios-container"></div>
+</section>
 
 </main>
 
 <script>
-  function showPage(pageId) {
-    // Hide all pages
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-
-    // Show target page
-    const page = document.getElementById('page-' + pageId);
-    if (page) {
-      page.classList.add('active');
-      window.scrollTo(0, 0);
-    }
-
-    // Mark nav item active
-    const navItems = document.querySelectorAll('.nav-item');
-    navItems.forEach(item => {
-      const onclick = item.getAttribute('onclick');
-      if (onclick && onclick.includes("'" + pageId + "'")) {
-        item.classList.add('active');
-      }
-    });
-
-    // Close sidebar on mobile
-    if (window.innerWidth <= 768) {
-      document.getElementById('sidebar').classList.remove('open');
-    }
-
-    return false;
+// DATA — All 29 speakers
+const speakers = [
+  {
+    name: "Alexandre Van de Sande",
+    company: "ENS Foundation",
+    focus: "Ethereum, Identidade Descentralizada (ENS), Experiência do Usuário (UX) em Web3 e a visão de futuro da internet.",
+    qs: [
+      ["Crescimento de ecossistema", "Airdrop para a comunidade", "pré-venda com desconto?"],
+      ["Identidade digital", "ENS como padrão único", "um futuro com múltiplos padrões?"],
+      ["Para o usuário final", "Autocustódia com smart wallets", "ETFs de cripto?"],
+      ["Governança de DAOs", "Voto por token", "voto por reputação?"],
+      ["Privacidade em blockchain", "Mixers e ZK-rollups", "foco total na transparência?"],
+      ["Futuro da Web", "Web3 totalmente descentralizada", "modelo híbrido com a Web2?"],
+      ["Para desenvolvedores", "Construir na Ethereum Mainnet", "focar em Layer 2s?"]
+    ]
+  },
+  {
+    name: "Afonso Dalvi",
+    company: "Lumx & Smart Contracts",
+    focus: "Desenvolvimento de Smart Contracts, transição de empresas da Web2 para a Web3, Tokenização e Account Abstraction.",
+    qs: [
+      ["Empresas em Web3", "Tokenização de ativos", "programas de fidelidade com NFTs?"],
+      ["Desenvolvimento de dApps", "Foco em segurança máxima", "experiência do usuário (UX)?"],
+      ["Smart contracts", "Padrões abertos (ERCs)", "soluções proprietárias customizadas?"],
+      ["Para escalar Ethereum", "Layer 2s como Arbitrum/Optimism", "novas Layer 1s?"],
+      ["Account Abstraction", "Padrão ERC-4337", "esperar por implementações nativas no protocolo?"],
+      ["Carreira em Web3", "Especialização em uma única blockchain", "ser agnóstico a plataformas?"],
+      ["Modelo de negócio para dApps", "Cobrança de taxas por transação", "modelo de assinatura (SaaS)?"]
+    ]
+  },
+  {
+    name: "Alex Carvalho",
+    company: "Trader e Analista CNPI-T",
+    focus: "Day Trade, Análise Técnica, Mercado Futuro (Dólar e Índice) e a psicologia do trader.",
+    qs: [
+      ["Para o trader", "Análise técnica clássica", "leitura de fluxo (tape reading)?"],
+      ["Setup de trading", "Gráfico limpo (price action)", "múltiplos indicadores?"],
+      ["Mercado para operar", "Contratos futuros (índice/dólar)", "mercado de ações?"],
+      ["Gestão de risco", "Stop fixo (curto)", "stop móvel (alongar a operação)?"],
+      ["Para iniciantes", "Começar em conta simulada", "ir direto para a conta real com pouco capital?"],
+      ["Ferramentas", "Operar direto pelo home broker", "usar plataformas profissionais (como o Profit)?"],
+      ["Mindset do trader", "Foco em alta taxa de acerto", "operações com assimetria (ganhar muito quando acerta)?"]
+    ]
+  },
+  {
+    name: "Thiago Godoy",
+    company: "Papai Financeiro",
+    focus: "Educação Financeira, Finanças Comportamentais, Psicologia do Dinheiro e investimentos para a família.",
+    qs: [
+      ["Para começar a investir", "Tesouro Direto", "Fundo de Investimento simples?"],
+      ["Controle financeiro", "Planilha detalhada", "aplicativo simples no celular?"],
+      ["Dívidas", "Quitar a dívida mais cara primeiro", "a menor primeiro (bola de neve)?"],
+      ["Reserva de emergência", "Poupança (pela liquidez)", "CDB com liquidez diária?"],
+      ["Para o futuro dos filhos", "Previdência privada infantil", "carteira de ETFs?"],
+      ["Comportamento", "Cortar todos os gastos supérfluos", "focar em aumentar a renda?"],
+      ["Uso do crédito", "Cartão de crédito como vilão", "como aliado (para milhas e organização)?"]
+    ]
+  },
+  {
+    name: "Márcio Kieling",
+    company: "Ator e Trader",
+    focus: "Transição de carreira, Day Trade, aspecto emocional do trading e a vida de um trader autônomo.",
+    qs: [
+      ["Vida de trader", "Operar sozinho em casa", "em uma sala de trading com outros operadores?"],
+      ["Foco no mercado", "Day trade (operações curtas)", "Swing trade (operações de alguns dias)?"],
+      ["Aprendizado", "Cursos e mentorias", "aprender na prática com os próprios erros?"],
+      ["Carreira", "A segurança de um emprego estável", "a liberdade (com riscos) do trading?"],
+      ["Em um dia de loss", "Parar de operar e ir para a academia", "continuar tentando reverter o prejuízo?"],
+      ["Notícias e mercado", "Operar baseado em notícias e eventos", "ignorar o ruído e focar só no gráfico?"],
+      ["Inspiração", "Buscar a consistência de um grande fundo", "a genialidade de um trader lendário?"]
+    ]
+  },
+  {
+    name: "Caio Coppolla",
+    company: "Comentarista Político",
+    focus: "Análise de Cenários Políticos, Mídia e Direito.",
+    qs: [
+      ["Mídia", "Mídia tradicional", "mídia independente?"],
+      ["Judiciário", "Ativismo judicial", "autocontenção do Judiciário?"],
+      ["Ideologia", "Conservadorismo nos costumes", "liberalismo na economia?"],
+      ["Política Externa", "Diplomacia pragmática", "alinhamento ideológico?"],
+      ["Imprensa", "Fiscal do poder", "ator político?"],
+      ["Governança", "Soberania nacional", "globalismo?"],
+      ["Diálogo Político", "Debate polarizado", "busca por consenso?"]
+    ]
+  },
+  {
+    name: "Carlos Ferreirinha",
+    company: "Especialista em Mercado de Luxo",
+    focus: "Gestão e Inteligência Estratégica para o Mercado de Luxo e Premium.",
+    qs: [
+      ["Estratégia de Marca", "Exclusividade", "Acessibilidade?"],
+      ["Identidade", "Herança da marca", "Inovação constante?"],
+      ["Jornada do Cliente", "Experiência física na loja", "jornada 100% digital?"],
+      ["Valores da Marca", "Sustentabilidade como pilar", "foco no artesanato tradicional?"],
+      ["Marketing", "Influenciadores celebridades", "microinfluenciadores de nicho?"],
+      ["Crescimento", "Expansão para mercados emergentes", "consolidação nos mercados tradicionais?"],
+      ["Produto", "Personalização em massa", "produtos sob medida (bespoke)?"]
+    ]
+  },
+  {
+    name: "Carlos Portinho",
+    company: "Senador",
+    focus: "Direito (Esportivo e Tributário), Política e Articulação Parlamentar.",
+    qs: [
+      ["Vocação", "Carreira na política", "na advocacia?"],
+      ["Prioridade para o Rio", "Desenvolvimento econômico", "pautas de costumes?"],
+      ["Posicionamento", "Oposição ferrenha", "diálogo com o governo?"],
+      ["Atuação no Senado", "Relatoria de projetos", "articulação política?"],
+      ["Legado", "Um grande projeto de lei aprovado", "a defesa de uma ideologia?"],
+      ["Gestão Pública", "Cargos técnicos no Executivo", "mandatos no Legislativo?"],
+      ["No Direito", "Especialização em direito esportivo", "em direito tributário?"]
+    ]
+  },
+  {
+    name: "Gue Oliveira",
+    company: "Empreendedora da Beleza",
+    focus: "Empreendedorismo no setor de beleza, influência digital e educação para profissionais.",
+    qs: [
+      ["Sucesso no Salão", "Técnica impecável", "conexão com a cliente?"],
+      ["Estratégia de Mercado", "Focar em um nicho", "abraçar a diversidade de estilos?"],
+      ["Branding", "Marca pessoal forte", "marca do salão?"],
+      ["Educação", "Cursos online (escaláveis)", "eventos presenciais (exclusivos)?"],
+      ["Conteúdo Digital", "Viralizar com trends", "construir conteúdo atemporal?"],
+      ["Identidade Profissional", "Artista do cabelo", "empresária da beleza?"],
+      ["Inovação", "Criar novas técnicas", "aperfeiçoar os clássicos?"]
+    ]
+  },
+  {
+    name: "Luis Justo",
+    company: "CEO Rock in Rio, The Town, Lollapalooza",
+    focus: "Liderança, Inovação Estratégica e Gestão de Grandes Eventos de Entretenimento.",
+    qs: [
+      ["Preferência Pessoal", "Rock in Rio", "The Town?"],
+      ["Curadoria", "Palco Mundo", "Palco Sunset?"],
+      ["Prioridade no Festival", "Line-up de peso", "experiência do público?"],
+      ["Gestão", "Inovação disruptiva", "otimização de processos?"],
+      ["Trajetória", "Carreira na moda", "no entretenimento?"],
+      ["Estilo de Liderança", "Liderança pelo exemplo", "pela delegação?"],
+      ["Visão de Futuro", "Manter a tradição do festival", "buscar a vanguarda?"]
+    ]
+  },
+  {
+    name: "Gilvan Bueno",
+    company: "Especialista em Finanças / ESG",
+    focus: "Investimentos, Educação Financeira, ESG e Empreendedorismo no Mercado Financeiro.",
+    qs: [
+      ["Investimento em Startups", "Investimento anjo", "Venture Capital?"],
+      ["Carreira Financeira", "Grande banco", "fintech?"],
+      ["Critério de Investimento", "Foco em ESG", "maximização de lucros?"],
+      ["Educação Financeira", "Para todos", "para nichos específicos?"],
+      ["Classe de Ativos", "Mercados tradicionais", "criptomoedas?"],
+      ["Caminho Profissional", "Empreender no mercado financeiro", "seguir carreira executiva?"],
+      ["Métrica de Sucesso", "Retorno financeiro", "impacto social?"]
+    ]
+  },
+  {
+    name: "Paulo Tenório",
+    company: "CEO Trakto Design",
+    focus: "Empreendedorismo (Bootstrapping), Design, Marketing Digital e Crescimento de Startups.",
+    qs: [
+      ["Financiamento", "Bootstrapping", "investimento anjo?"],
+      ["Foco do Negócio", "Produto impecável", "marketing agressivo?"],
+      ["Cultura da Empresa", "Cultura de startup", "cultura corporativa?"],
+      ["Filosofia de Design", "Design para designers", "design para não designers?"],
+      ["Prioridade", "Tração (crescimento)", "Resultado (lucro)?"],
+      ["Mercado", "Empreender no Brasil", "no exterior?"],
+      ["Modelo de Negócio", "Conteúdo gratuito (freemium)", "conteúdo 100% pago?"]
+    ]
+  },
+  {
+    name: "Felipe Roman",
+    company: "CEO Exact Sales / RD Station",
+    focus: "Vendas (Sales Engagement), Tecnologia, Inteligência Artificial e Liderança em Startups.",
+    qs: [
+      ["Estratégia de Vendas", "Sales Engagement", "Sales Intelligence?"],
+      ["Financiamento de Startup", "Bootstrapping", "Investimento Anjo?"],
+      ["Liderança de Tecnologia", "CTO técnico", "CTO estratégico?"],
+      ["Inovação", "Desenvolvimento interno", "aquisição de tecnologia?"],
+      ["Cultura da Empresa", "Cultura de produto", "cultura de vendas?"],
+      ["Aplicação de IA", "IA para automação", "IA para personalização?"],
+      ["Perfil Profissional", "Empreendedor serial", "executivo de grande empresa?"]
+    ]
+  },
+  {
+    name: "Alec Howard",
+    company: "CEO, Ruvo",
+    focus: "Fintech, pagamentos transfronteiriços, tokenização e criptoativos.",
+    qs: [
+      ["Moedas Digitais", "Stablecoins", "CBDCs?"],
+      ["Pagamentos Transfronteiriços", "Fintechs", "Bancos tradicionais?"],
+      ["Ativos Digitais", "Tokenização de ativos reais (RWAs)", "Ativos nativos de DeFi?"],
+      ["Empreendedorismo", "Bootstrapping", "Capital de Risco (Venture Capital)?"],
+      ["Regulação", "Colaboração proativa com reguladores", "\"Pedir perdão, não permissão\"?"],
+      ["Experiência do Usuário", "Simplicidade radical", "Ecossistema completo de funcionalidades?"],
+      ["Expansão Global", "Hiper-localização para cada mercado", "Produto global padronizado?"]
+    ]
+  },
+  {
+    name: "Marcos Viriato",
+    company: "CEO, Parfin",
+    focus: "Infraestrutura de ativos digitais para instituições financeiras, tokenização e a ponte entre mercado financeiro tradicional e DeFi.",
+    qs: [
+      ["Infraestrutura", "Blockchains permissionadas", "públicas para o sistema financeiro?"],
+      ["Tendências", "Tokenização de ativos ilíquidos", "expansão das CBDCs?"],
+      ["Regulação", "Barreira", "acelerador para a adoção de cripto?"],
+      ["Custódia", "Custódia institucional", "autocustódia para o futuro do dinheiro?"],
+      ["Arquitetura", "Interoperabilidade entre blockchains", "dominância de um único ecossistema?"],
+      ["DeFi", "Para instituições", "para o varejo?"],
+      ["Futuro dos Bancos", "Se tornar uma plataforma de cripto", "ser desintermediado por elas?"]
+    ]
+  },
+  {
+    name: "Jorge Borges",
+    company: "Head LATAM, Fireblocks",
+    focus: "Infraestrutura de custódia de ativos digitais para instituições financeiras na América Latina.",
+    qs: [
+      ["Custódia", "Autocustódia", "custódia institucional?"],
+      ["Plataforma", "Ethereum", "blockchains alternativas para tokenização?"],
+      ["Moeda Digital", "Stablecoins lastreadas em dólar", "uma futura CBDC (Real Digital)?"],
+      ["Regulação", "Proativa", "inovação sem barreiras no mercado cripto?"],
+      ["Investimento", "DeFi", "CeFi para o investidor institucional?"],
+      ["Tese de Investimento", "Tokenização de ativos do mercado financeiro", "criação de novos ativos nativamente digitais?"],
+      ["Estratégia LatAm", "Foco no mercado de varejo", "exclusivamente no institucional?"]
+    ]
+  },
+  {
+    name: "Ray Nasser",
+    company: "Head LatAm, Blockfills",
+    focus: "Provedora de liquidez e tecnologia para mercados de cripto, OTC, market-making e mineração.",
+    qs: [
+      ["Bitcoin", "Reserva de valor", "meio de troca?"],
+      ["Mineração de Bitcoin", "Foco em energia renovável", "a fonte de energia não importa?"],
+      ["Acesso Institucional", "Alocação direta em cripto", "através de ETFs?"],
+      ["Stablecoins", "Lastreadas em dólar", "em outros ativos?"],
+      ["Regulação", "Essencial para a adoção em massa", "um obstáculo à inovação?"],
+      ["Futuro da Web3", "Centrado em DeFi", "em NFTs e metaverso?"],
+      ["Estratégia para o Brasil", "Liderar a inovação em blockchain", "focar em ser hub de mineração?"]
+    ]
+  },
+  {
+    name: "Rafael Teruszkin",
+    company: "Head LatAm, Bitpanda Technology Solutions",
+    focus: "Infraestrutura de investimentos e cripto para o mercado B2B, conectando finanças tradicionais e ativos digitais.",
+    qs: [
+      ["Tese de Mercado", "Tokenização de ativos reais (RWA)", "criptomoedas nativas?"],
+      ["Modelo de Negócio", "Infraestrutura de cripto como serviço (B2B)", "plataforma para o varejo (B2C)?"],
+      ["Regulação", "Barreira", "catalisador para a adoção institucional?"],
+      ["Stablecoins", "Algorítmicas", "colateralizadas por ativos tradicionais?"],
+      ["Estratégia de Expansão", "Parcerias com bancos tradicionais", "com fintechs inovadoras?"],
+      ["Custódia", "Autocustódia para o usuário final", "custódia por terceiros (plataformas)?"],
+      ["Futuro do Mercado", "DeFi", "CeDeFi (Centralizado e Descentralizado)?"]
+    ]
+  },
+  {
+    name: "Rafael Fraga",
+    company: "LATAM Business Developer Lead, Cardano Foundation",
+    focus: "Desenvolvimento de negócios e parcerias para a blockchain Cardano na América Latina.",
+    qs: [
+      ["Regulação", "Regulação estatal", "autorregulação do mercado?"],
+      ["Estratégia de Adoção", "Foco em grandes corporações", "em desenvolvedores independentes?"],
+      ["Moeda Digital", "Adoção massiva via CBDCs", "via stablecoins privadas?"],
+      ["Potencial da Blockchain", "Otimização de processos existentes", "criação de novos modelos de negócio?"],
+      ["Arquitetura", "Interoperabilidade entre blockchains", "ecossistema fechado e autossuficiente?"],
+      ["Tese de Investimento", "Tokenização de ativos reais (RWA)", "foco em ativos puramente digitais (DeFi)?"],
+      ["Educação", "Educação em massa sobre blockchain", "foco em formar especialistas?"]
+    ]
+  },
+  {
+    name: "Fillipe Trentin",
+    company: "CEO, Oxus Finance",
+    focus: "Finanças descentralizadas (DeFi), pagamentos transfronteiriços, stablecoins e tokenização de ativos.",
+    qs: [
+      ["Pagamentos Internacionais", "SWIFT", "Stablecoins?"],
+      ["Inovação Financeira", "Tokenização de ativos reais (RWA)", "moedas digitais de banco central (CBDCs)?"],
+      ["Regulação", "Pró-inovação", "autorregulação do mercado cripto?"],
+      ["Foco de Mercado", "Soluções corporativas (B2B)", "varejo (B2C) para DeFi?"],
+      ["Arquitetura Blockchain", "Interoperabilidade", "ecossistema de uma única blockchain dominante?"],
+      ["Modelo de Stablecoin", "Algorítmicas", "colateralizadas?"],
+      ["Estratégia de Crescimento", "Acelerado com capital de risco", "desenvolvimento sustentável e orgânico?"]
+    ]
+  },
+  {
+    name: "Marco Tulio da Silva Lima",
+    company: "Gestor de Produtos, Serpro",
+    focus: "Blockchain governamental, moedas digitais e serviços públicos digitais.",
+    qs: [
+      ["Foco da Tecnologia", "Blockchain para o cidadão", "para o governo?"],
+      ["Moeda Digital", "CBDC (Real Digital)", "stablecoins privadas?"],
+      ["Identidade Digital", "Soberana", "login com as grandes techs?"],
+      ["Sistema Financeiro", "Open finance", "finanças descentralizadas (DeFi)?"],
+      ["Aplicação da Tokenização", "Ativos públicos", "ativos privados?"],
+      ["Natureza da Blockchain", "Infraestrutura pública", "como serviço de mercado?"],
+      ["Papel da Regulação", "Proteção", "barreira à inovação?"]
+    ]
+  },
+  {
+    name: "Andre Portilho",
+    company: "Head de Digital Assets, BTG Pactual",
+    focus: "Ponte entre o mercado financeiro tradicional e o universo dos ativos digitais.",
+    qs: [
+      ["Natureza do Bitcoin", "Reserva de valor", "ativo especulativo?"],
+      ["Tese de Investimento", "Tokenização de ativos reais", "criação de novos ativos digitais nativos?"],
+      ["Papel da Regulação", "Acelera a adoção institucional", "inibe a inovação?"],
+      ["Estrutura do Mercado", "DeFi", "CeFi com blockchain?"],
+      ["Moeda Digital", "Stablecoins lastreadas em dólar", "CBDC brasileira?"],
+      ["Acesso ao Mercado", "Investimento direto em cripto", "através de ETFs e fundos?"],
+      ["Potencial do Ethereum", "Infraestrutura para o futuro da internet", "apenas mais uma plataforma de smart contracts?"]
+    ]
+  },
+  {
+    name: "Daniel Maeda",
+    company: "Superintendente Jurídico, B3",
+    focus: "Regulação de mercados de capitais, com foco em ativos digitais, ETFs e inovação.",
+    qs: [
+      ["Postura Regulatória", "Proativa", "Reativa?"],
+      ["Futuro da Tokenização", "Na B3", "em Redes Públicas?"],
+      ["ETFs de Cripto", "Exposição Simplificada", "Risco Sistêmico?"],
+      ["Modelo de Inovação", "Sandbox regulatório", "Reforma Ampla?"],
+      ["Interoperabilidade", "Pontes entre Blockchains", "Padrões Centralizados?"],
+      ["Relação com DeFi", "Ameaça", "Oportunidade para o Mercado Tradicional?"],
+      ["Dados na Blockchain", "Transparência Total", "Privacidade Seletiva?"]
+    ]
+  },
+  {
+    name: "Felipe Cabral",
+    company: "Executivo de Crypto Assets e Mercados, Santander",
+    focus: "Ativos digitais, blockchain, tokenização e modernização do sistema financeiro tradicional.",
+    qs: [
+      ["Aplicação da Blockchain", "Tokenização de ativos reais", "Moedas Digitais de Banco Central (CBDCs)?"],
+      ["Ambiente de Inovação", "Bancos tradicionais", "startups de cripto?"],
+      ["Custódia de Ativos", "Autocustódia", "custódia institucional?"],
+      ["Tese de Investimento", "Bitcoin como reserva de valor", "Ethereum como plataforma de contratos inteligentes?"],
+      ["Modelo Regulatório", "Pró-inovação", "mercado com menos amarras?"],
+      ["Relação com DeFi", "Complemento", "substituto do sistema financeiro tradicional?"],
+      ["Estratégia de Adoção", "Foco em investidores institucionais", "no varejo para adoção em massa?"]
+    ]
+  },
+  {
+    name: "João Paulo Aragão Pereira",
+    company: "SR Expert em AI e DeFi, Banco Inter",
+    focus: "Inteligência Artificial, Finanças Descentralizadas (DeFi) e Estratégias de Moeda Digital do Banco Central (CBDC).",
+    qs: [
+      ["Futuro do DeFi", "Em bancos tradicionais", "em novas plataformas descentralizadas?"],
+      ["Moeda Digital", "CBDCs como o DREX", "stablecoins privadas?"],
+      ["Aplicação de IA", "Para gestão de risco", "para criação de novos produtos financeiros?"],
+      ["Papel da Blockchain", "Otimizar o sistema atual", "criar um sistema financeiro totalmente novo?"],
+      ["Tese de Investimento", "Tokenização de ativos reais", "criptomoedas nativas como o Bitcoin?"],
+      ["Papel da Regulação", "Impulsionadora da inovação", "uma barreira?"],
+      ["Sistemas Multiagentes", "Para colaboração", "para competição autônoma em finanças?"]
+    ]
+  },
+  {
+    name: "Sthéfano Cordeiro",
+    company: "Especialista em Ativos Digitais, Banco do Brasil",
+    focus: "Estratégia de Ativos Digitais, Strategic Foresight, Web3 e Blockchain.",
+    qs: [
+      ["Moeda Digital", "Drex", "Stablecoins Privadas?"],
+      ["Tese de Investimento", "Tokenização de Ativos Reais (RWA)", "DeFi Nativas?"],
+      ["Papel da Regulação", "Inovação", "Barreira?"],
+      ["Custódia", "Autocustódia", "Custódia Institucional?"],
+      ["Propósito da Web3", "Inclusão Financeira", "Eficiência de Mercado?"],
+      ["Arquitetura Blockchain", "Interoperabilidade", "Ecossistemas Fechados?"],
+      ["Análise de Mercado", "Strategic Foresight", "Análise de Dados em Tempo Real?"]
+    ]
+  },
+  {
+    name: "Thiago Sarandy",
+    company: "Chefe de Assuntos Regulatórios, Binance",
+    focus: "Assuntos regulatórios e jurídicos de criptoativos, com foco em regulação de stablecoins e exchanges.",
+    qs: [
+      ["Foco da Regulação", "Pró-inovação", "pró-mercado?"],
+      ["Modelo de Stablecoin", "Algorítmicas", "colateralizadas?"],
+      ["Custódia", "Autocustódia", "exchanges centralizadas?"],
+      ["Relação de Mercados", "DeFi", "Finanças Tradicionais (TradFi)?"],
+      ["Futuro da Moeda", "CBDCs", "criptomoedas privadas?"],
+      ["Privacidade", "Anonimato total", "rastreabilidade na blockchain?"],
+      ["Potencial do Brasil", "Hub de cripto", "exportador de talentos?"]
+    ]
+  },
+  {
+    name: "Marcelo Curi",
+    company: "Arquiteto de Soluções WEB3 e Champion de P&D, Petrobras",
+    focus: "Blockchain, tokenização e Web3 aplicados à indústria de energia e à economia de baixo carbono.",
+    qs: [
+      ["Mineração por Petrolíferas", "Inovação energética", "greenwashing?"],
+      ["Tokenização de Energia", "Democratização do investimento", "complexidade desnecessária?"],
+      ["Web3 na Transição Energética", "Catalisador para descentralização", "apenas um hype tecnológico?"],
+      ["Blockchain no Setor de Energia", "Permissionada", "pública?"],
+      ["Foco do P&D em Blockchain", "Eficiência operacional", "em novos modelos de negócio?"],
+      ["Regulação de Criptoativos", "Freio para a inovação", "necessidade para a segurança do mercado?"],
+      ["Acesso Institucional", "Autocustódia", "ETFs de cripto?"]
+    ]
+  },
+  {
+    name: "Ana Westfal",
+    company: "Growth Lead LatAm, Uniswap",
+    focus: "Crescimento de comunidades e negócios no ecossistema Web3, com foco em mercados emergentes e estratégias de marketing.",
+    qs: [
+      ["Estratégia de Crescimento", "Construir comunidade organicamente", "investir em marketing massivo?"],
+      ["Ecossistema Blockchain", "Ethereum", "ecossistemas alternativos (Solana, Polkadot)?"],
+      ["Relação de Mercados", "DeFi", "Finanças Tradicionais (TradFi)?"],
+      ["Foco Geográfico", "Mercados desenvolvidos", "mercados emergentes como a América Latina?"],
+      ["Modelo de Governança", "DAO", "liderança centralizada?"],
+      ["Design de Token", "Tokens de utilidade", "tokens de governança?"],
+      ["Barreiras à Adoção", "Educação para o usuário", "foco em usabilidade e UX?"]
+    ]
   }
+];
 
-  function toggleSidebar() {
-    document.getElementById('sidebar').classList.toggle('open');
-  }
+// 10 Perguntas para Aleatórios
+const aleatorios = [
+  { title: "Bitcoin ou Ouro?", sub: "Como reserva de valor para o longo prazo — qual você confia mais?", a: "Bitcoin", b: "Ouro" },
+  { title: "Buy and Hold ou Day Trade?", sub: "Qual perfil de investidor você se identifica mais?", a: "Buy & Hold", b: "Day Trade" },
+  { title: "Criptomoeda ou Ações?", sub: "Se tivesse que escolher só um mercado para investir em 2026, qual seria?", a: "Criptomoeda", b: "Ações" },
+  { title: "Banco digital ou Banco tradicional?", sub: "Para o seu dia a dia financeiro, qual você prefere?", a: "Banco Digital", b: "Banco Tradicional" },
+  { title: "Risco alto com potencial alto, ou segurança com retorno menor?", sub: "Qual a sua filosofia de investimento?", a: "Risco Alto", b: "Segurança" },
+  { title: "Análise técnica ou Análise fundamentalista?", sub: "Na hora de tomar uma decisão de investimento, o que você consulta mais?", a: "Análise Técnica", b: "Fundamentalista" },
+  { title: "Curto prazo ou Longo prazo?", sub: "Você pensa nos seus investimentos em meses ou em anos?", a: "Curto Prazo", b: "Longo Prazo" },
+  { title: "Empreender ou Investir?", sub: "Se tivesse R$100.000 sobrando agora, você abria um negócio ou colocava no mercado?", a: "Empreender", b: "Investir" },
+  { title: "Dólar ou Bitcoin para guardar dinheiro fora do real?", sub: "Qual você escolheria como proteção contra a desvalorização do real?", a: "Dólar", b: "Bitcoin" },
+  { title: "Diversificar muito ou Concentrar em poucos ativos?", sub: "Muitos ovos em muitas cestas, ou apostar forte em poucas escolhas?", a: "Diversificar", b: "Concentrar" }
+];
 
-  // Close sidebar when clicking outside on mobile
-  document.addEventListener('click', function(e) {
-    const sidebar = document.getElementById('sidebar');
-    const hamburger = document.querySelector('.hamburger');
-    if (window.innerWidth <= 768 && !sidebar.contains(e.target) && !hamburger.contains(e.target)) {
-      sidebar.classList.remove('open');
-    }
+// Render speakers
+function renderSpeakers() {
+  const nav = document.getElementById('speaker-nav');
+  const container = document.getElementById('speakers-container');
+
+  speakers.forEach((sp, i) => {
+    const num = i + 1;
+    const id = 'sp-' + num;
+
+    // nav chip
+    const chip = document.createElement('a');
+    chip.className = 'speaker-chip';
+    chip.href = '#';
+    chip.textContent = sp.name.split(' ')[0] + (sp.name.split(' ')[1] ? ' ' + sp.name.split(' ')[1] : '');
+    chip.onclick = (e) => { e.preventDefault(); openSpeaker(id); };
+    nav.appendChild(chip);
+
+    // speaker section
+    const section = document.createElement('div');
+    section.className = 'speaker-section';
+    section.id = id;
+
+    const qs_html = sp.qs.map((q, qi) => `
+      <div class="q-row">
+        <div class="q-num">${(qi+1).toString().padStart(2,'0')}</div>
+        <div class="q-body">
+          <div class="q-text">${q[0]}: <em style="color:var(--muted);font-weight:400">${q[1]} <strong style="color:var(--text)">ou</strong> ${q[2]}</em></div>
+          <div class="q-vs">
+            <span class="q-opt">${q[1].replace('?','')}</span>
+            <span class="q-sep">vs</span>
+            <span class="q-opt">${q[2].replace('?','')}</span>
+          </div>
+        </div>
+      </div>
+    `).join('');
+
+    section.innerHTML = `
+      <div class="speaker-header" onclick="toggleSpeaker('${id}')">
+        <span class="speaker-num">${num.toString().padStart(2,'0')}</span>
+        <div class="speaker-info">
+          <div class="speaker-name">${sp.name}</div>
+          <div class="speaker-co">${sp.company}</div>
+        </div>
+        <span class="speaker-toggle">▼</span>
+      </div>
+      <div class="speaker-body">
+        <div class="speaker-foco"><strong>Foco</strong>${sp.focus}</div>
+        ${qs_html}
+      </div>
+    `;
+    container.appendChild(section);
   });
+}
+
+// Render aleatorios
+function renderAleatorios() {
+  const c = document.getElementById('aleatorios-container');
+  aleatorios.forEach((q, i) => {
+    c.innerHTML += `
+      <div class="al-card">
+        <div class="al-num">${(i+1).toString().padStart(2,'0')}</div>
+        <div class="al-body">
+          <div class="al-title">${q.title}</div>
+          <div class="al-sub">${q.sub}</div>
+          <div class="al-vs">
+            <span class="al-opt">${q.a}</span>
+            <span class="al-sep">vs</span>
+            <span class="al-opt">${q.b}</span>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+}
+
+function toggleSpeaker(id) {
+  document.getElementById(id).classList.toggle('open');
+}
+
+function openSpeaker(id) {
+  const el = document.getElementById(id);
+  el.classList.add('open');
+  showPage('palestrantes');
+  setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
+}
+
+function toggleAll(open) {
+  document.querySelectorAll('.speaker-section').forEach(s => {
+    open ? s.classList.add('open') : s.classList.remove('open');
+  });
+}
+
+function showPage(pageId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  const page = document.getElementById('page-' + pageId);
+  if (page) { page.classList.add('active'); window.scrollTo(0,0); }
+  document.querySelectorAll('.nav-item').forEach(item => {
+    if ((item.getAttribute('onclick') || '').includes("'" + pageId + "'")) item.classList.add('active');
+  });
+  if (window.innerWidth <= 768) document.getElementById('sidebar').classList.remove('open');
+}
+
+// Init
+renderSpeakers();
+renderAleatorios();
 </script>
 </body>
 </html>
